@@ -28,6 +28,7 @@ import sys
 import getopt
 import os
 import numpy as np
+import logging
 from distutils.util import strtobool
 
 
@@ -61,6 +62,7 @@ use_seed = False
 per_mutate = 0
 per_shift = 0
 per_introns = 0
+per_stop = 0
 len_introns = 0
 output_file = "output"
 mutated_file = "mutated"
@@ -83,10 +85,10 @@ def get_options(argv):
     global len_introns
     global output_file
     global mutated_file
-
+    global per_stop
     
     try:
-        opts, args = getopt.getopt(argv,"ho:u:n:m:e:p:s:i:l:",["output=","mutated=","n_sequence=","m_length=","use_seed=","p_mutate=","p_shift=","p_introns=","l_introns="])
+        opts, args = getopt.getopt(argv,"ho:u:n:m:e:p:s:i:l:a:",["output=","mutated=","n_sequence=","m_length=","use_seed=","p_mutate=","p_shift=","p_introns=","l_introns=","p_stop="])
     except getopt.GetoptError:
         sys.exit(2)
     
@@ -111,7 +113,9 @@ def get_options(argv):
         elif opt in ("-i","--p_introns"):
             per_introns = float(arg)
         elif opt in ("-l","--l_introns"):
-            len_introns = float(arg)            
+            len_introns = float(arg)
+        elif opt in ("-a","--p_stop"):
+            per_stop = float(arg)            
             
 def generate_sequence(length):
     samples = (length/3) - 2
@@ -215,9 +219,9 @@ def shift_sequence(aln, per_species):
     s = ''
     n_species = int(round(len(aln) * per_species))
     idx = random.sample(range(0,len(aln)),n_species)
-    #print("There are {0} species with indices : {1}".format(n_species,idx))    
     for i in range(len(aln)):
         if i in idx:
+            logging.info("Frameshift for {0}".format(aln[i].name))
             s = Seq(frameshift(aln[i].seq,0.5,0.5))
         else:
             s = aln[i].seq
@@ -231,14 +235,38 @@ def shift_sequence(aln, per_species):
 
 
 # this is ok
-def premature_stop(seq ,prob):
+def premature_stop(seq):
     
     mutated_seq = ''
     kmers = [seq[i:i+3] for i in range(0, len(seq), 3)]
     loc = random.randrange(1,len(kmers)-1,1)
     kmers[loc] = 'TAG'
-    mutated_seq = ''.join(kmers)
+    mutated_seq = ''.join(str(kmers))
     return(mutated_seq)
+
+
+def insert_stop(aln, per_stop):
+    
+    pseudo_aln = []
+    s = ''
+    n_species = int(round(len(aln) * per_stop))
+    idx = random.sample(range(len(aln)),n_species)
+    
+    for i in range(len(aln)):
+        if i in idx:
+            logging.info("Premature Stop Codons for {0}".format(aln[i].name))
+            s = premature_stop(aln[i].seq)
+        else:
+            s = aln[i].seq
+        
+        pseudo_aln.append(SeqRecord(Seq(s),
+                            id = "{0}".format(aln[i].id),
+                            name = "{0}".format(aln[i].id),
+                            description = ""))
+    
+    return(pseudo_aln)
+
+
 
 def generate_introns(length):
     introns = ''.join(np.random.choice(nucleotides, int(length)))
@@ -254,9 +282,8 @@ def retain_introns(aln, per_introns, length_introns):
     for i in range(len(aln)):
         if i in idx:
             loc = random.choice(range(len(aln[i].seq)))
-            print(length_introns)
+            logging.info("Intron retention for {0}".format(aln[i].name))
             insert_intron = generate_introns(length_introns)
-            print(insert_intron)
             s = aln[i].seq[:loc] + insert_intron + aln[i].seq[loc:]
         else:
             s = aln[i].seq
@@ -274,9 +301,10 @@ if __name__=='__main__':
 
     directory = os.getcwd()
     get_options(sys.argv[1:])
+    logging.basicConfig(filename='{0}_events.log'.format(output_file),level=logging.INFO)
     reference_msa = generate_MSA(seq_num)
     write_fasta(directory,output_file,reference_msa)
-    mutated_msa = shift_sequence(reference_msa, 0.5)
-    #write_fasta(directory,mutated_file,mutated_msa)
-    r = retain_introns(mutated_msa, per_introns, len_introns)
-    write_fasta(directory,mutated_file,r)
+    shifted_msa = shift_sequence(reference_msa, per_shift)
+    ir_msa = retain_introns(shifted_msa, per_introns, len_introns)
+    stop_msa = insert_stop(ir_msa, per_stop)
+    write_fasta(directory,mutated_file,stop_msa)
