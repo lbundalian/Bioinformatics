@@ -118,6 +118,7 @@ def get_options(argv):
             per_stop = float(arg)            
             
 def generate_sequence(length):
+
     samples = (length/3) - 2
     randseq = ''
     midseq = []
@@ -127,6 +128,7 @@ def generate_sequence(length):
     return(randseq)
 
 def generate_seed(length):
+
     return(generate_sequence(length))
 
 def generate_MSA(num):
@@ -145,12 +147,12 @@ def generate_MSA(num):
     else:
         for i in range(num):
             s = mutate_sequence(seq_seed, per_mutate)
-            #print(s)
             seq = SeqRecord(Seq(s),
                             id = "Species_{0}".format(i+1),
                             name = "Species_{0}".format(i+1),
                             description = "")
             pseudo_aln.append(seq)
+
     return(pseudo_aln)
 
 
@@ -166,23 +168,60 @@ def write_fasta(path,file,MSA):
 
 # for mutating the sequence
 # the default probability for mutation
-def mutate_sequence(seq, per_mutate):
+def mutate_sequence(seq, per_mutate, no_stop = True):
     
     mutated_seq = ''
     
-    n_loc = len(seq)
-    for i in range(n_loc)[3:]:
-        mutate = random.choices(['Y','N'],[per_mutate, 1-per_mutate])
-        if mutate[0] == 'Y':
-            tmp = seq[i]
-            sequence = list(seq)
-            sequence[i] = random.choice([nuc for nuc in nucleotides if nuc != tmp] )
-            seq = ''.join(sequence)
+    if no_stop == False:
+        n_loc = len(seq)
+        for i in range(n_loc)[3:]:
+            mutate = random.choices(['Y','N'],[per_mutate, 1-per_mutate])
+            if mutate[0] == 'Y':
+                tmp = seq[i]
+                sequence = list(seq)
+                sequence[i] = random.choice([nuc for nuc in nucleotides if nuc != tmp] )
+                seq = ''.join(sequence)
     
-    mutated_seq = seq
+        mutated_seq = seq
+    
+    else:
 
+        mutated_seq  = seq[:3] + mutate_kmerwise(seq[3:-3], per_mutate) + seq[-3:]
+
+    print(mutated_seq)
     return(mutated_seq)
 
+def mutate_kmerwise(seq, per_mutate):
+    
+    mutated_sequence = []
+    mutated_kmers = []
+    
+    kmers = [seq[i:i+3] for i in range(0, len(seq), 3)]
+    for kmer in kmers:
+
+        nuc_in_kmer = list(kmer)
+        stop_flag = False
+
+        while stop_flag == False:
+ 
+            for i in range(len(nuc_in_kmer)):
+                mutate = random.choices(['Y','N'],[per_mutate, 1-per_mutate])
+                if mutate[0] == 'Y':
+                    tmp = nuc_in_kmer[i]
+                    nuc_in_kmer[i] = random.choice([nuc for nuc in nucleotides if nuc != tmp] )
+            
+            
+            _seq = ''.join(nuc_in_kmer)
+            if _seq not in stop_codons:
+
+                stop_flag = True 
+                
+                mutated_kmers.append(_seq)
+    
+    
+    mutated_sequence = ''.join(mutated_kmers)        
+    
+    return(mutated_sequence)
 
 
 # change to actual insertion (addition of sequence) and 
