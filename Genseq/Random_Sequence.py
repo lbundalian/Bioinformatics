@@ -66,7 +66,7 @@ per_stop = 0
 len_introns = 0
 output_file = "output"
 mutated_file = "mutated"
-
+seed_file = "seed"
 
 seq_seed = ''
 exclude = stop_codons + start_codons
@@ -86,9 +86,12 @@ def get_options(argv):
     global output_file
     global mutated_file
     global per_stop
-    
+    global seq_seed
+    global seed_file
+
+
     try:
-        opts, args = getopt.getopt(argv,"ho:u:n:m:e:p:s:i:l:a:",["output=","mutated=","n_sequence=","m_length=","use_seed=","p_mutate=","p_shift=","p_introns=","l_introns=","p_stop="])
+        opts, args = getopt.getopt(argv,"hr:o:u:n:m:e:p:s:i:l:a:",["reference=","output=","mutated=","n_sequence=","m_length=","use_seed=","p_mutate=","p_shift=","p_introns=","l_introns=","p_stop="])
     except getopt.GetoptError:
         sys.exit(2)
     
@@ -115,7 +118,9 @@ def get_options(argv):
         elif opt in ("-l","--l_introns"):
             len_introns = float(arg)
         elif opt in ("-a","--p_stop"):
-            per_stop = float(arg)            
+            per_stop = float(arg) 
+        elif opt in ("-r","--reference"):
+            seed_file = arg            
             
 def generate_sequence(length):
 
@@ -134,6 +139,9 @@ def generate_seed(length):
 def generate_MSA(num):
     
     seq = None
+    
+    global seq_seed
+    
     seq_seed = generate_seed(seq_length)
     
     if not use_seed:
@@ -164,6 +172,12 @@ def write_fasta(path,file,MSA):
         SeqIO.write(a, fasta_file, 'fasta')
         
     fasta_file.close()
+
+def save_seed(path,seed_file,aln):
+    
+    fasta_file = open('{0}//{1}.fasta'.format(path,seed_file),'w+')
+    SeqIO.write(aln, fasta_file, 'fasta')    
+    fasta_file.close()
        
 
 # for mutating the sequence
@@ -188,7 +202,6 @@ def mutate_sequence(seq, per_mutate, no_stop = True):
 
         mutated_seq  = seq[:3] + mutate_kmerwise(seq[3:-3], per_mutate) + seq[-3:]
 
-    print(mutated_seq)
     return(mutated_seq)
 
 def mutate_kmerwise(seq, per_mutate):
@@ -277,10 +290,11 @@ def shift_sequence(aln, per_species):
 def premature_stop(seq):
     
     mutated_seq = ''
-    kmers = [seq[i:i+3] for i in range(0, len(seq), 3)]
-    loc = random.randrange(1,len(kmers)-1,1)
-    kmers[loc] = 'TAG'
-    mutated_seq = ''.join(str(kmers))
+    sequence = list(seq)
+    loc = random.randrange(1,len(sequence)-1,1)
+    sequence[loc] = 'TAG'
+    seq = ''.join(sequence)
+    mutated_seq = seq
     return(mutated_seq)
 
 
@@ -311,6 +325,8 @@ def generate_introns(length):
     introns = ''.join(np.random.choice(nucleotides, int(length)))
     return(introns)
 
+
+
 def retain_introns(aln, per_introns, length_introns):
     
     pseudo_aln = []
@@ -339,11 +355,21 @@ def retain_introns(aln, per_introns, length_introns):
 if __name__=='__main__':
 
     directory = os.getcwd()
+
     get_options(sys.argv[1:])
+    
     logging.basicConfig(filename='{0}_events.log'.format(output_file),level=logging.INFO)
+    
     reference_msa = generate_MSA(seq_num)
+    
+    save_seed(directory,seed_file, SeqRecord(Seq(seq_seed), id = "Seed_Sequence",name = "Seed_Sequence",description=""))
+
     write_fasta(directory,output_file,reference_msa)
+    
     shifted_msa = shift_sequence(reference_msa, per_shift)
+    
     ir_msa = retain_introns(shifted_msa, per_introns, len_introns)
+    
     stop_msa = insert_stop(ir_msa, per_stop)
+    
     write_fasta(directory,mutated_file,stop_msa)
