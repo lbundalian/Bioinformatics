@@ -300,7 +300,6 @@ def search_stop_codon(aln, n = 3):
         for _alignment in aln:
             
             premature = False
-            #print(_alignment.name)
             
             for index in range(0, len(_alignment.seq), 3):
                 codon = _alignment.seq[index:index+3]
@@ -330,9 +329,35 @@ def search_stop_codon(aln, n = 3):
         
         
 
-directory = os.getcwd()
+def extend_MSA(MSA, ext_len):
+    
+    extended_aln = []
+    
+    for aln in MSA:
+        aln.seq = aln.seq[:-3] + ("X"*ext_len) + aln.seq[-3:]
+        _seq = SeqRecord(Seq(aln.seq),
+                                    id = aln.id,
+                                    name = aln.name,
+                                    description = aln.description)
+                
+        
+        extended_aln.append(_seq)
+    
+    return(MultipleSeqAlignment(extended_aln))
+
+
+def write_fasta(path,file,MSA):
+    
+    fasta_file = open('{0}//{1}.fasta'.format(path,file),'w+')
+    for a in MSA:
+        
+        SeqIO.write(a, fasta_file, 'fasta')
+        
+    fasta_file.close()
 
 if __name__=='__main__':
+
+    directory = os.getcwd()
     
     logging.basicConfig(filename='events.log',level=logging.INFO)
 
@@ -343,6 +368,11 @@ if __name__=='__main__':
         
 
     if not debug: 
+        
+        m_aln = len(alignments[0].seq)
+        
+        if m_aln%3 != 0:
+            alignments = extend_MSA(alignments,3-(m_aln%3))
         
         # mask the gaps with bp length < 10
         mask_alignments = mask_sequence(alignments)
@@ -366,19 +396,10 @@ if __name__=='__main__':
         
         no_premature_matrix = search_stop_codon(matched_matrix)
         
-        file_handle = open("output.fasta","w")
-
-        #AlignIO.write(no_premature_matrix, file_handle, "fasta")
-
-        file_handle.close()
-
-        #print(no_premature_matrix)
-
-        for _s in no_premature_matrix:
-            #print(_s.seq)
-            print(">{0}".format(_s.id))
-            print("{0}".format(_s.seq), end = '')
-
+        write_fasta(directory, "output", no_premature_matrix)
+        
+        for m in no_frameshift_sequences:
+            print(m.seq)
         
 
 
