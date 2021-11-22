@@ -70,7 +70,7 @@ def remove_gap(aln,state_cols):
                 keep_cols.append(ctr)
 
     for s in aln:
-        sequence = '%s\n' % ''.join([s.seq[i] for i in keep_cols])
+        sequence = '%s' % ''.join([s.seq[i] for i in keep_cols])
        
         seq = SeqRecord(Seq(sequence),
                         id = s.id,
@@ -225,6 +225,7 @@ def match_concensus(concensus,aln, thr = 10):
 def percent_gap(align,gapthr):
     for a in align:
         nuc_count = Counter(a)
+        print(a)
         pergap = (nuc_count['-']/len(a)) * 100  
         if pergap < gapthr:
             _seq = SeqRecord(Seq(a.seq),
@@ -334,7 +335,7 @@ def extend_MSA(MSA, ext_len):
     extended_aln = []
     
     for aln in MSA:
-        aln.seq = aln.seq[:-3] + ("X"*ext_len) + aln.seq[-3:]
+        aln.seq = aln.seq[:-3] + ("?"*ext_len) + aln.seq[-3:]
         _seq = SeqRecord(Seq(aln.seq),
                                     id = aln.id,
                                     name = aln.name,
@@ -375,16 +376,22 @@ if __name__=='__main__':
             alignments = extend_MSA(alignments,3-(m_aln%3))
         
         # mask the gaps with bp length < 10
-        mask_alignments = mask_sequence(alignments)
+        #mask_alignments = mask_sequence(alignments)
+        
+        #write_fasta(directory, "masked", mask_alignments)
         
         # assign if the flags for each blocks [Discard or Keep]
-        state_matrix = create_state_matrix(mask_alignments, float(threshold))
+        state_matrix = create_state_matrix(alignments, float(threshold))
         
         # remove the gaps and keep the ones without DISCARD flag - 0
-        clean_alignments = remove_gap(mask_alignments,state_matrix)
+        clean_alignments = remove_gap(alignments,state_matrix)
+        
+        write_fasta(directory, "clean", clean_alignments)
         
         # remove species with %gap
         no_gap_sequences = percent_gap(clean_alignments,float(gap))
+        
+        write_fasta(directory, "no_gaps", no_gap_sequences)
         
         # remove gaps which is not divisible by 3
         no_frameshift_sequences = find_frameshifts(no_gap_sequences)   
@@ -398,8 +405,6 @@ if __name__=='__main__':
         
         write_fasta(directory, "output", no_premature_matrix)
         
-        for m in no_frameshift_sequences:
-            print(m.seq)
         
 
 
