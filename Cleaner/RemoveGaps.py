@@ -6,7 +6,13 @@ Date : 09092021
 Description : Script to remove the part of the sequence which are not conserved across 
 the defined species
 
-Last Modified : 05102021
+Last Modified : 22102021
+
+Change logs:
+    
+    22112021 -  Added step for removing the frameshifted columnn
+
+
 
 """
 
@@ -55,18 +61,18 @@ species = []
 # sequence alignment object.
 # =============================================================================
 
-def remove_gap(aln,state_cols):
+def remove_gap(aln,state_cols,kmer = 3):
     
     keep_cols = []
     clean_aln = []
 
-    for i in range(0,len(state_cols),3):
+    for i in range(0,len(state_cols),kmer):
         k = 0
-        for j in range(3):
+        for j in range(kmer):
             k+=state_cols[i+j]
         
         if k == 0:
-            for ctr in range(i,i+3):
+            for ctr in range(i,i + kmer):
                 keep_cols.append(ctr)
 
     for s in aln:
@@ -124,7 +130,7 @@ def mask_sequence(aln):
 # A method generate a matrix containing flags for discarding or keeping a block
 # =============================================================================
 
-def create_state_matrix(aln, thr):
+def create_state_matrix(aln, thr, c = '-'):
 
     clean_aln = []
     state_cols = []
@@ -136,7 +142,7 @@ def create_state_matrix(aln, thr):
         col_nucs = [sr.seq[i].upper() for sr in aln]
         counter = Counter(col_nucs)
         # if greater than threshold, discard [1] else keep [0]
-        if counter['-']/len(col_nucs) >= thr :
+        if counter[c]/len(col_nucs) >= thr :
             state_cols.append(1)
         else:
             state_cols.append(0)    
@@ -268,6 +274,32 @@ def find_frameshifts(aln,ln = 3,min = 0):
     return(MultipleSeqAlignment(species))
 
 
+def find_frameshifts(aln,ln = 3,min = 0):
+    species = []
+    for a in aln:
+        nuc = str(a.seq)
+        nuc = nuc.replace('N','-')
+        matches = re.finditer('-{1,}',nuc)
+        mod3 = []
+        
+        for match in matches:
+            mod3.append(len(match.group())%ln)
+
+        if (Counter(mod3)[1] + Counter(mod3)[2]) == min:
+            _seq = SeqRecord(Seq(nuc),
+                        id = a.id,
+                        name = a.name,
+                        description = a.description)
+            species.append(_seq)
+        else:
+            logging.info("Frameshift detected in {0}".format(a.name))
+    return(MultipleSeqAlignment(species))
+
+
+def remove_frameshifts(aln,ln=3):
+    pass
+
+
 
 # =============================================================================
 # Method Name : matrix_transform
@@ -335,7 +367,7 @@ def extend_MSA(MSA, ext_len):
     extended_aln = []
     
     for aln in MSA:
-        aln.seq = aln.seq[:-3] + ("?"*ext_len) + aln.seq[-3:]
+        aln.seq = aln.seq[:-3] + ("X"*ext_len) + aln.seq[-3:]
         _seq = SeqRecord(Seq(aln.seq),
                                     id = aln.id,
                                     name = aln.name,
@@ -376,30 +408,37 @@ if __name__=='__main__':
             alignments = extend_MSA(alignments,3-(m_aln%3))
         
         # mask the gaps with bp length < 10
-        #mask_alignments = mask_sequence(alignments)
+        mask_alignments = mask_sequence(alignments)
         
-        #write_fasta(directory, "masked", mask_alignments)
+        write_fasta(directory, "masked", mask_alignments)
         
         # assign if the flags for each blocks [Discard or Keep]
-        state_matrix = create_state_matrix(alignments, float(threshold))
+        state_matrix = create_state_matrix(mask_alignments, float(threshold))
         
         # remove the gaps and keep the ones without DISCARD flag - 0
-        clean_alignments = remove_gap(alignments,state_matrix)
+        clean_alignments = remove_gap(mask_alignments,state_matrix)
         
         write_fasta(directory, "clean", clean_alignments)
+        
         
         # remove species with %gap
         no_gap_sequences = percent_gap(clean_alignments,float(gap))
         
         write_fasta(directory, "no_gaps", no_gap_sequences)
         
+        state_matrix_shifts = create_state_matrix(no_gap_sequences, 10, 'N')
+        
+        noshift_alignments = remove_gap(no_gap_sequences,state_matrix_shifts,1)
+        
+        write_fasta(directory, "no_shifts", noshift_alignments)
+        
         # remove gaps which is not divisible by 3
-        no_frameshift_sequences = find_frameshifts(no_gap_sequences)   
+        #no_frameshift_sequences = find_frameshifts(no_gap_sequences)   
         
         # check for block wise agreement for the alignments
         # for checking
-        con = create_concensus(no_frameshift_sequences)
-        matched_matrix = match_concensus(con,no_frameshift_sequences, int(concensus))
+        con = create_concensus(noshift_alignments)
+        matched_matrix = match_concensus(con,noshift_alignments, int(concensus))
         
         no_premature_matrix = search_stop_codon(matched_matrix)
         
