@@ -231,7 +231,6 @@ def match_concensus(concensus,aln, thr = 10):
 def percent_gap(align,gapthr):
     for a in align:
         nuc_count = Counter(a)
-        print(a)
         pergap = (nuc_count['-']/len(a)) * 100  
         if pergap < gapthr:
             _seq = SeqRecord(Seq(a.seq),
@@ -262,42 +261,17 @@ def find_frameshifts(aln,ln = 3,min = 0):
         
         for match in matches:
             mod3.append(len(match.group())%ln)
-
-        if (Counter(mod3)[1] + Counter(mod3)[2]) == min:
-            _seq = SeqRecord(Seq(nuc),
-                        id = a.id,
-                        name = a.name,
-                        description = a.description)
-            species.append(_seq)
-        else:
-            logging.info("Frameshift detected in {0}".format(a.name))
+            print("{0} {1}".format(a.id,Counter(mod3)))
+            if (Counter(mod3)[1] + Counter(mod3)[2]) == min:
+                _seq = SeqRecord(Seq(nuc),
+                            id = a.id,
+                            name = a.name,
+                            description = a.description)
+                species.append(_seq)
+            else:
+                logging.info("Frameshift detected in {0}".format(a.name))
     return(MultipleSeqAlignment(species))
 
-
-def find_frameshifts(aln,ln = 3,min = 0):
-    species = []
-    for a in aln:
-        nuc = str(a.seq)
-        nuc = nuc.replace('N','-')
-        matches = re.finditer('-{1,}',nuc)
-        mod3 = []
-        
-        for match in matches:
-            mod3.append(len(match.group())%ln)
-
-        if (Counter(mod3)[1] + Counter(mod3)[2]) == min:
-            _seq = SeqRecord(Seq(nuc),
-                        id = a.id,
-                        name = a.name,
-                        description = a.description)
-            species.append(_seq)
-        else:
-            logging.info("Frameshift detected in {0}".format(a.name))
-    return(MultipleSeqAlignment(species))
-
-
-def remove_frameshifts(aln,ln=3):
-    pass
 
 
 
@@ -337,7 +311,6 @@ def search_stop_codon(aln, n = 3):
             for index in range(0, len(_alignment.seq), 3):
                 codon = _alignment.seq[index:index+3]
                 if codon in stop_codons and index < (len(_alignment.seq)/3):
-                    print("STOPPED")
                     logging.info("Premature stop codon in {0} Block : {1}".format(_alignment.name, index))
                     premature = True
                     break
@@ -433,7 +406,7 @@ if __name__=='__main__':
         write_fasta(directory, "no_shifts", noshift_alignments)
         
         # remove gaps which is not divisible by 3
-        #no_frameshift_sequences = find_frameshifts(no_gap_sequences)   
+        no_frameshift_sequences = find_frameshifts(no_gap_sequences)   
         
         # check for block wise agreement for the alignments
         # for checking
