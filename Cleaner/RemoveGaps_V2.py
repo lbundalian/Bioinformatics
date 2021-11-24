@@ -482,37 +482,38 @@ if __name__=='__main__':
  
     if not debug: 
         
+        # find the ORF
         orf = find_orf(alignments)
         trimmed_alignments = margin_trim(alignments, start = orf)
-        save_msa(directory, "trim", trimmed_alignments)
+        save_msa(directory + "/Logs", "trim", trimmed_alignments)
         
         # mask the gaps with bp length < 10
         mask_alignments = mask_sequence(trimmed_alignments)
-        save_msa(directory, "mask", mask_alignments)
+        save_msa(directory + "/Logs", "mask", mask_alignments)
 
         # remove the masked nucleotides
         state_matrix_shifts = create_state_matrix(mask_alignments, 10, 'N')
         noshift_alignments = remove_block_gaps(mask_alignments,state_matrix_shifts,1)
-        save_msa(directory, "noshift", noshift_alignments)
+        save_msa(directory + "/Logs", "noshift", noshift_alignments)
 
 
         # High gap percentage
         state_matrix_strict = create_state_matrix(noshift_alignments, 95)
         nogap_strict_alignments = remove_block_gaps(noshift_alignments,state_matrix_strict,1)
-        save_msa(directory, "nogapstrict", nogap_strict_alignments)
+        save_msa(directory + "/Logs", "nogapstrict", nogap_strict_alignments)
  
         
         # assign if the flags for each blocks [Discard or Keep]
         # remove the gaps and keep the ones without DISCARD flag - 0
         state_matrix_gaps = create_state_matrix(nogap_strict_alignments, float(colwise_gap_thr))
         nogap_alignments = remove_block_gaps(nogap_strict_alignments,state_matrix_gaps,3)
-        save_msa(directory, "nogaps", nogap_alignments)
+        save_msa(directory + "/Logs", "nogaps", nogap_alignments)
         
         nomask_alignments = find_frameshifts(nogap_alignments)
-        save_msa(directory, "nomask", nomask_alignments)
+        save_msa(directory + "/Logs", "nomask", nomask_alignments)
     
         nopremature_alignments = search_stop_codon(nomask_alignments)
-        save_msa(directory, "nostop", nopremature_alignments)
+        save_msa(directory + "/Logs", "nostop", nopremature_alignments)
     
     else :
         
