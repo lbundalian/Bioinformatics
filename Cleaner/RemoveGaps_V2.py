@@ -28,12 +28,14 @@ from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 from collections import Counter
+from itertools import chain
 from Bio.Align import MultipleSeqAlignment
 from collections import Counter
 
 from numpy.core.fromnumeric import shape
 from numpy.core.numeric import normalize_axis_tuple
 from numpy.lib.function_base import average
+from distutils.util import strtobool
 
 
 
@@ -44,6 +46,7 @@ from numpy.lib.function_base import average
 colwise_gap_thr = 0
 seqwise_gap_thr = 0
 concensus_thr = 0
+debug = False
 
 species = []
 fasta_file = ''
@@ -70,9 +73,10 @@ def get_options(argv):
     global concensus_thr
     global input_file
     global ouput_file
+    global debug
     
     try:
-        opts, args = getopt.getopt(argv,"hi:o:b:s:c:",["input=","output=","blockwise=","seqwise=","concensus="])
+        opts, args = getopt.getopt(argv,"hd:i:o:b:s:c:",["debug=","input=","output=","blockwise=","seqwise=","concensus="])
     except getopt.GetoptError:
         sys.exit(2)
     
@@ -90,6 +94,8 @@ def get_options(argv):
             seqwise_gap_thr = float(arg)
         elif opt in ("-c", "--concensus"):
             concensus_thr = float(arg)
+        elif opt in ("-d", "--debug"):
+            debug = strtobool(arg)
 
 
 # =============================================================================
@@ -134,7 +140,34 @@ def extend_msa(msa, ext_len):
     return(MultipleSeqAlignment(extended_aln))
 
 
+# =============================================================================
+# Method Name : find_orf
+# Parameters :
+#   aln - the multiple sequence alignment object from to concesus of nucleo-
+# Description :
+# A method remove non conforming sequence
+# =============================================================================
 
+def find_orf(msa):
+
+    positions = []
+    position_counts = []
+    
+    for aln in msa:
+        nuc = str(aln.seq)
+        _nucleotides = re.finditer('ATG+', nuc)
+        tmp = []
+        for n in _nucleotides:
+            pos = n.start()
+            tmp.append(pos)
+        positions.append(tmp)
+        
+    positions_combined = list(chain.from_iterable(positions))
+    position_counts = Counter(positions_combined)
+    orf,n = position_counts.most_common(1)[0]
+    return orf
+    
+    
 # =============================================================================
 # Method Name : remove_gap
 # Parameters :
@@ -373,6 +406,61 @@ def search_stop_codon(aln, n = 3):
         return MultipleSeqAlignment(sequences)
 
 
+# =============================================================================
+# Method Name : margin_trim
+# Parameters :
+#   msa - alignment to be observed
+#   start - 
+# Description :
+# A method generate to search for premature stop codon
+# =============================================================================
+def margin_trim(msa, start = None, end = None):
+
+    trimmed_msa = []    
+
+    for aln in msa:
+        _seq = SeqRecord(Seq(aln.seq[start:end]),
+                        id = aln.id,
+                        name = aln.name,
+                        description = aln.description)
+        trimmed_msa.append(_seq)
+
+    return trimmed_msa
+
+
+# =============================================================================
+# Method Name : find_frameshifts
+# Parameters :
+#   aln - the multiple sequence alignment object to be trimmed 
+# Description :
+# A method to find sequences with frameshifts i.e num_gaps%3 != 0
+# =============================================================================
+
+def find_frameshifts(msa):
+    
+    noshifts = []
+    
+    
+    for aln in msa:
+        n_position = []        
+        nuc = str(aln.seq)
+        matches = re.finditer('N{1,}',nuc)
+        for match in matches:
+            n_position.append(match.start())
+        
+        
+        
+        if len(n_position) == 0:
+            _seq = SeqRecord(Seq(nuc),
+                        id = aln.id,
+                        name = aln.name,
+                        description = aln.description)
+            noshifts.append(_seq)
+        else:
+            logging.info("Frameshift detected in {0}".format(aln.name))
+    
+    return MultipleSeqAlignment(noshifts)
+
 
 # =============================================================================
 # Main program 
@@ -387,44 +475,48 @@ if __name__=='__main__':
     logging.basicConfig(filename='events.log',level=logging.INFO)
 
 
-    debug = False
-
+    
     # read the alignment
     alignments = AlignIO.read("{0}/{1}".format(directory,input_file), "fasta")
         
-
+ 
     if not debug: 
         
-        m_aln = len(alignments[0].seq)
-        print(m_aln)
+        orf = find_orf(alignments)
+        trimmed_alignments = margin_trim(alignments, start = orf)
+        save_msa(directory, "trim", trimmed_alignments)
         
         # mask the gaps with bp length < 10
-        mask_alignments = mask_sequence(alignments)
+        mask_alignments = mask_sequence(trimmed_alignments)
         save_msa(directory, "mask", mask_alignments)
- 
-        
+
         # remove the masked nucleotides
         state_matrix_shifts = create_state_matrix(mask_alignments, 10, 'N')
         noshift_alignments = remove_block_gaps(mask_alignments,state_matrix_shifts,1)
         save_msa(directory, "noshift", noshift_alignments)
- 
-    
-        m_aln = len(noshift_alignments[0].seq)
-        print(m_aln)
-        
-        
-        
-        if m_aln%3 != 0:
-            noshift_alignments = extend_msa(noshift_alignments,3-(m_aln%3))
 
-            
-    
+
+        # High gap percentage
+        state_matrix_strict = create_state_matrix(noshift_alignments, 95)
+        nogap_strict_alignments = remove_block_gaps(noshift_alignments,state_matrix_strict,1)
+        save_msa(directory, "nogapstrict", nogap_strict_alignments)
+ 
+        
         # assign if the flags for each blocks [Discard or Keep]
         # remove the gaps and keep the ones without DISCARD flag - 0
-        state_matrix_gaps = create_state_matrix(noshift_alignments, float(colwise_gap_thr))
-        nogap_alignments = remove_block_gaps(noshift_alignments,state_matrix_gaps,3)
+        state_matrix_gaps = create_state_matrix(nogap_strict_alignments, float(colwise_gap_thr))
+        nogap_alignments = remove_block_gaps(nogap_strict_alignments,state_matrix_gaps,3)
         save_msa(directory, "nogaps", nogap_alignments)
-
-        m_aln = len(nogap_alignments[0].seq)
-        print(m_aln)
-  
+        
+        nomask_alignments = find_frameshifts(nogap_alignments)
+        save_msa(directory, "nomask", nomask_alignments)
+    
+        nopremature_alignments = search_stop_codon(nomask_alignments)
+        save_msa(directory, "nostop", nopremature_alignments)
+    
+    else :
+        
+        orf = find_orf(alignments)
+        trimmed_msa = margin_trim(alignments, start = orf)
+        save_msa(directory, "trim", trimmed_msa)
+        
