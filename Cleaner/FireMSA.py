@@ -575,7 +575,8 @@ class MSACleaner(IMSACleaner):
 
         self.save_msa("pipeline_output")
         
-        # nopremature_alignments = search_stop_codon(nomask_alignments)
+        self.search_stop_codon()
+        self.save_msa("pipeline_output_1")
         # save_msa(directory + "/Logs", "nostop", nopremature_alignments)
 
 
