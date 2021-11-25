@@ -22,6 +22,8 @@ import re
 import getopt
 import numpy as np
 import logging
+import fire
+
 
 from Bio import AlignIO
 from Bio import SeqIO
@@ -31,6 +33,8 @@ from collections import Counter
 from itertools import chain
 from Bio.Align import MultipleSeqAlignment
 from collections import Counter
+
+
 
 from numpy.core.fromnumeric import shape
 from numpy.core.numeric import normalize_axis_tuple
@@ -44,6 +48,8 @@ from distutils.util import strtobool
 # =============================================================================
 
 colwise_gap_thr = 0
+strict_shift_thr = 95
+strict_gap_thr = 90
 seqwise_gap_thr = 0
 concensus_thr = 0
 debug = False
@@ -74,9 +80,12 @@ def get_options(argv):
     global input_file
     global ouput_file
     global debug
+    global strict_shift_thr
+    global strict_gap_thr
+    
     
     try:
-        opts, args = getopt.getopt(argv,"hd:i:o:b:s:c:",["debug=","input=","output=","blockwise=","seqwise=","concensus="])
+        opts, args = getopt.getopt(argv,"hd:i:o:b:s:c:",["debug=","input=","output=","blockwise=","seqwise=","concensus=","strict_gap=","strict_shift="])
     except getopt.GetoptError:
         sys.exit(2)
     
@@ -96,6 +105,10 @@ def get_options(argv):
             concensus_thr = float(arg)
         elif opt in ("-d", "--debug"):
             debug = strtobool(arg)
+        elif opt in ("--strict_gap"):
+            strict_gap_thr = float(arg)
+        elif opt in ("--strict_shift"):
+            strict_shift_thr = strtobool(arg)
 
 
 # =============================================================================
@@ -479,7 +492,7 @@ if __name__=='__main__':
     # read the alignment
     alignments = AlignIO.read("{0}/{1}".format(directory,input_file), "fasta")
         
- 
+    
     if not debug: 
         
         # find the ORF
@@ -492,13 +505,12 @@ if __name__=='__main__':
         save_msa(directory + "/Logs", "mask", mask_alignments)
 
         # remove the masked nucleotides
-        state_matrix_shifts = create_state_matrix(mask_alignments, 10, 'N')
+        state_matrix_shifts = create_state_matrix(mask_alignments, strict_shift_thr, 'N')
         noshift_alignments = remove_block_gaps(mask_alignments,state_matrix_shifts,1)
         save_msa(directory + "/Logs", "noshift", noshift_alignments)
 
-
-        # High gap percentage
-        state_matrix_strict = create_state_matrix(noshift_alignments, 95)
+        # High gap percentage, this will more likely remove insertions
+        state_matrix_strict = create_state_matrix(noshift_alignments, strict_gap_thr)
         nogap_strict_alignments = remove_block_gaps(noshift_alignments,state_matrix_strict,1)
         save_msa(directory + "/Logs", "nogapstrict", nogap_strict_alignments)
  
@@ -509,12 +521,20 @@ if __name__=='__main__':
         nogap_alignments = remove_block_gaps(nogap_strict_alignments,state_matrix_gaps,3)
         save_msa(directory + "/Logs", "nogaps", nogap_alignments)
         
-        nomask_alignments = find_frameshifts(nogap_alignments)
+        # remove gappy sequences
+        noseqgap_alignments = remove_seq_gaps(nogap_alignments, float(seqwise_gap_thr))
+        save_msa(directory + "/Logs", "noseqgaps", noseqgap_alignments)
+        
+        
+        nomask_alignments = find_frameshifts(noseqgap_alignments)
         save_msa(directory + "/Logs", "nomask", nomask_alignments)
-    
+
+        
         nopremature_alignments = search_stop_codon(nomask_alignments)
         save_msa(directory + "/Logs", "nostop", nopremature_alignments)
     
+    
+        
     else :
         
         orf = find_orf(alignments)

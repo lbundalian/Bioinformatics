@@ -1,20 +1,34 @@
+INFO:root:Too much gaps for Species_3
+INFO:root:Too much gaps for Species_5
+INFO:root:Too much gaps for Species_12
+INFO:root:Too much gaps for Species_23
+INFO:root:Too much gaps for Species_27
+INFO:root:Too much gaps for Species_29
+INFO:root:Too much gaps for Species_31
+INFO:root:Too much gaps for Species_32
+INFO:root:Too much gaps for Species_39
+INFO:root:Too much gaps for Species_49
+INFO:root:Too much gaps for Species_50
+INFO:root:Too much gaps for Species_56
+INFO:root:Too much gaps for Species_66
+INFO:root:Too much gaps for Species_72
+INFO:root:Too much gaps for Species_73
+INFO:root:Too much gaps for Species_91
+INFO:root:Too much gaps for Species_93
+INFO:root:Too much gaps for Species_97
+INFO:root:Too much gaps for Species_99
 INFO:root:Frameshift detected in Species_17
 INFO:root:Frameshift detected in Species_48
-INFO:root:Frameshift detected in Species_56
 INFO:root:Frameshift detected in Species_65
-INFO:root:Frameshift detected in Species_72
 INFO:root:Premature stop codon in Species_1 Block : 138
 INFO:root:Premature stop codon in Species_2 Block : 93
-INFO:root:Premature stop codon in Species_3 Block : 138
 INFO:root:Premature stop codon in Species_4 Block : 57
-INFO:root:Premature stop codon in Species_5 Block : 201
 INFO:root:Premature stop codon in Species_6 Block : 93
 INFO:root:Premature stop codon in Species_7 Block : 63
 INFO:root:Premature stop codon in Species_8 Block : 150
 INFO:root:Premature stop codon in Species_9 Block : 51
 INFO:root:Premature stop codon in Species_10 Block : 183
 INFO:root:Premature stop codon in Species_11 Block : 93
-INFO:root:Premature stop codon in Species_12 Block : 186
 INFO:root:Premature stop codon in Species_13 Block : 138
 INFO:root:Premature stop codon in Species_14 Block : 108
 INFO:root:Premature stop codon in Species_15 Block : 57
@@ -24,23 +38,17 @@ INFO:root:Premature stop codon in Species_19 Block : 273
 INFO:root:Premature stop codon in Species_20 Block : 93
 INFO:root:Premature stop codon in Species_21 Block : 57
 INFO:root:Premature stop codon in Species_22 Block : 69
-INFO:root:Premature stop codon in Species_23 Block : 138
 INFO:root:Premature stop codon in Species_24 Block : 93
 INFO:root:Premature stop codon in Species_25 Block : 186
 INFO:root:Premature stop codon in Species_26 Block : 138
-INFO:root:Premature stop codon in Species_27 Block : 138
 INFO:root:Premature stop codon in Species_28 Block : 138
-INFO:root:Premature stop codon in Species_29 Block : 138
 INFO:root:Premature stop codon in Species_30 Block : 90
-INFO:root:Premature stop codon in Species_31 Block : 138
-INFO:root:Premature stop codon in Species_32 Block : 138
 INFO:root:Premature stop codon in Species_33 Block : 138
 INFO:root:Premature stop codon in Species_34 Block : 57
 INFO:root:Premature stop codon in Species_35 Block : 93
 INFO:root:Premature stop codon in Species_36 Block : 90
 INFO:root:Premature stop codon in Species_37 Block : 93
 INFO:root:Premature stop codon in Species_38 Block : 138
-INFO:root:Premature stop codon in Species_39 Block : 186
 INFO:root:Premature stop codon in Species_40 Block : 93
 INFO:root:Premature stop codon in Species_41 Block : 96
 INFO:root:Premature stop codon in Species_42 Block : 138
@@ -49,8 +57,6 @@ INFO:root:Premature stop codon in Species_44 Block : 198
 INFO:root:Premature stop codon in Species_45 Block : 93
 INFO:root:Premature stop codon in Species_46 Block : 63
 INFO:root:Premature stop codon in Species_47 Block : 93
-INFO:root:Premature stop codon in Species_49 Block : 138
-INFO:root:Premature stop codon in Species_50 Block : 138
 INFO:root:Premature stop codon in Species_51 Block : 93
 INFO:root:Premature stop codon in Species_52 Block : 90
 INFO:root:Premature stop codon in Species_53 Block : 93
@@ -64,13 +70,11 @@ INFO:root:Premature stop codon in Species_61 Block : 186
 INFO:root:Premature stop codon in Species_62 Block : 93
 INFO:root:Premature stop codon in Species_63 Block : 57
 INFO:root:Premature stop codon in Species_64 Block : 75
-INFO:root:Premature stop codon in Species_66 Block : 138
 INFO:root:Premature stop codon in Species_67 Block : 48
 INFO:root:Premature stop codon in Species_68 Block : 93
 INFO:root:Premature stop codon in Species_69 Block : 93
 INFO:root:Premature stop codon in Species_70 Block : 60
 INFO:root:Premature stop codon in Species_71 Block : 108
-INFO:root:Premature stop codon in Species_73 Block : 150
 INFO:root:Premature stop codon in Species_74 Block : 138
 INFO:root:Premature stop codon in Species_75 Block : 87
 INFO:root:Premature stop codon in Species_76 Block : 93
@@ -88,35 +92,23 @@ INFO:root:Premature stop codon in Species_87 Block : 93
 INFO:root:Premature stop codon in Species_88 Block : 93
 INFO:root:Premature stop codon in Species_89 Block : 93
 INFO:root:Premature stop codon in Species_90 Block : 138
-INFO:root:Premature stop codon in Species_91 Block : 138
 INFO:root:Premature stop codon in Species_92 Block : 138
-INFO:root:Premature stop codon in Species_93 Block : 138
 INFO:root:Premature stop codon in Species_94 Block : 93
 INFO:root:Premature stop codon in Species_95 Block : 186
 INFO:root:Premature stop codon in Species_96 Block : 93
-INFO:root:Premature stop codon in Species_97 Block : 138
 INFO:root:Premature stop codon in Species_98 Block : 93
-INFO:root:Premature stop codon in Species_99 Block : 138
 INFO:root:Premature stop codon in Species_100 Block : 186
 INFO:root:Premature stop codon in Species_101 Block : 93
 INFO:root:Premature stop codon in Species_102 Block : 93
-INFO:root:Frameshift detected in Species_17
-INFO:root:Frameshift detected in Species_48
-INFO:root:Frameshift detected in Species_56
-INFO:root:Frameshift detected in Species_65
-INFO:root:Frameshift detected in Species_72
 INFO:root:Premature stop codon in Species_1 Block : 138
 INFO:root:Premature stop codon in Species_2 Block : 93
-INFO:root:Premature stop codon in Species_3 Block : 138
 INFO:root:Premature stop codon in Species_4 Block : 57
-INFO:root:Premature stop codon in Species_5 Block : 201
 INFO:root:Premature stop codon in Species_6 Block : 93
 INFO:root:Premature stop codon in Species_7 Block : 63
 INFO:root:Premature stop codon in Species_8 Block : 150
 INFO:root:Premature stop codon in Species_9 Block : 51
 INFO:root:Premature stop codon in Species_10 Block : 183
 INFO:root:Premature stop codon in Species_11 Block : 93
-INFO:root:Premature stop codon in Species_12 Block : 186
 INFO:root:Premature stop codon in Species_13 Block : 138
 INFO:root:Premature stop codon in Species_14 Block : 108
 INFO:root:Premature stop codon in Species_15 Block : 57
@@ -126,23 +118,17 @@ INFO:root:Premature stop codon in Species_19 Block : 273
 INFO:root:Premature stop codon in Species_20 Block : 93
 INFO:root:Premature stop codon in Species_21 Block : 57
 INFO:root:Premature stop codon in Species_22 Block : 69
-INFO:root:Premature stop codon in Species_23 Block : 138
 INFO:root:Premature stop codon in Species_24 Block : 93
 INFO:root:Premature stop codon in Species_25 Block : 186
 INFO:root:Premature stop codon in Species_26 Block : 138
-INFO:root:Premature stop codon in Species_27 Block : 138
 INFO:root:Premature stop codon in Species_28 Block : 138
-INFO:root:Premature stop codon in Species_29 Block : 138
 INFO:root:Premature stop codon in Species_30 Block : 90
-INFO:root:Premature stop codon in Species_31 Block : 138
-INFO:root:Premature stop codon in Species_32 Block : 138
 INFO:root:Premature stop codon in Species_33 Block : 138
 INFO:root:Premature stop codon in Species_34 Block : 57
 INFO:root:Premature stop codon in Species_35 Block : 93
 INFO:root:Premature stop codon in Species_36 Block : 90
 INFO:root:Premature stop codon in Species_37 Block : 93
 INFO:root:Premature stop codon in Species_38 Block : 138
-INFO:root:Premature stop codon in Species_39 Block : 186
 INFO:root:Premature stop codon in Species_40 Block : 93
 INFO:root:Premature stop codon in Species_41 Block : 96
 INFO:root:Premature stop codon in Species_42 Block : 138
@@ -151,8 +137,6 @@ INFO:root:Premature stop codon in Species_44 Block : 198
 INFO:root:Premature stop codon in Species_45 Block : 93
 INFO:root:Premature stop codon in Species_46 Block : 63
 INFO:root:Premature stop codon in Species_47 Block : 93
-INFO:root:Premature stop codon in Species_49 Block : 138
-INFO:root:Premature stop codon in Species_50 Block : 138
 INFO:root:Premature stop codon in Species_51 Block : 93
 INFO:root:Premature stop codon in Species_52 Block : 90
 INFO:root:Premature stop codon in Species_53 Block : 93
@@ -166,13 +150,11 @@ INFO:root:Premature stop codon in Species_61 Block : 186
 INFO:root:Premature stop codon in Species_62 Block : 93
 INFO:root:Premature stop codon in Species_63 Block : 57
 INFO:root:Premature stop codon in Species_64 Block : 75
-INFO:root:Premature stop codon in Species_66 Block : 138
 INFO:root:Premature stop codon in Species_67 Block : 48
 INFO:root:Premature stop codon in Species_68 Block : 93
 INFO:root:Premature stop codon in Species_69 Block : 93
 INFO:root:Premature stop codon in Species_70 Block : 60
 INFO:root:Premature stop codon in Species_71 Block : 108
-INFO:root:Premature stop codon in Species_73 Block : 150
 INFO:root:Premature stop codon in Species_74 Block : 138
 INFO:root:Premature stop codon in Species_75 Block : 87
 INFO:root:Premature stop codon in Species_76 Block : 93
@@ -190,35 +172,23 @@ INFO:root:Premature stop codon in Species_87 Block : 93
 INFO:root:Premature stop codon in Species_88 Block : 93
 INFO:root:Premature stop codon in Species_89 Block : 93
 INFO:root:Premature stop codon in Species_90 Block : 138
-INFO:root:Premature stop codon in Species_91 Block : 138
 INFO:root:Premature stop codon in Species_92 Block : 138
-INFO:root:Premature stop codon in Species_93 Block : 138
 INFO:root:Premature stop codon in Species_94 Block : 93
 INFO:root:Premature stop codon in Species_95 Block : 186
 INFO:root:Premature stop codon in Species_96 Block : 93
-INFO:root:Premature stop codon in Species_97 Block : 138
 INFO:root:Premature stop codon in Species_98 Block : 93
-INFO:root:Premature stop codon in Species_99 Block : 138
 INFO:root:Premature stop codon in Species_100 Block : 186
 INFO:root:Premature stop codon in Species_101 Block : 93
 INFO:root:Premature stop codon in Species_102 Block : 93
-INFO:root:Frameshift detected in Species_17
-INFO:root:Frameshift detected in Species_48
-INFO:root:Frameshift detected in Species_56
-INFO:root:Frameshift detected in Species_65
-INFO:root:Frameshift detected in Species_72
 INFO:root:Premature stop codon in Species_1 Block : 138
 INFO:root:Premature stop codon in Species_2 Block : 93
-INFO:root:Premature stop codon in Species_3 Block : 138
 INFO:root:Premature stop codon in Species_4 Block : 57
-INFO:root:Premature stop codon in Species_5 Block : 201
 INFO:root:Premature stop codon in Species_6 Block : 93
 INFO:root:Premature stop codon in Species_7 Block : 63
 INFO:root:Premature stop codon in Species_8 Block : 150
 INFO:root:Premature stop codon in Species_9 Block : 51
 INFO:root:Premature stop codon in Species_10 Block : 183
 INFO:root:Premature stop codon in Species_11 Block : 93
-INFO:root:Premature stop codon in Species_12 Block : 186
 INFO:root:Premature stop codon in Species_13 Block : 138
 INFO:root:Premature stop codon in Species_14 Block : 108
 INFO:root:Premature stop codon in Species_15 Block : 57
@@ -228,23 +198,17 @@ INFO:root:Premature stop codon in Species_19 Block : 273
 INFO:root:Premature stop codon in Species_20 Block : 93
 INFO:root:Premature stop codon in Species_21 Block : 57
 INFO:root:Premature stop codon in Species_22 Block : 69
-INFO:root:Premature stop codon in Species_23 Block : 138
 INFO:root:Premature stop codon in Species_24 Block : 93
 INFO:root:Premature stop codon in Species_25 Block : 186
 INFO:root:Premature stop codon in Species_26 Block : 138
-INFO:root:Premature stop codon in Species_27 Block : 138
 INFO:root:Premature stop codon in Species_28 Block : 138
-INFO:root:Premature stop codon in Species_29 Block : 138
 INFO:root:Premature stop codon in Species_30 Block : 90
-INFO:root:Premature stop codon in Species_31 Block : 138
-INFO:root:Premature stop codon in Species_32 Block : 138
 INFO:root:Premature stop codon in Species_33 Block : 138
 INFO:root:Premature stop codon in Species_34 Block : 57
 INFO:root:Premature stop codon in Species_35 Block : 93
 INFO:root:Premature stop codon in Species_36 Block : 90
 INFO:root:Premature stop codon in Species_37 Block : 93
 INFO:root:Premature stop codon in Species_38 Block : 138
-INFO:root:Premature stop codon in Species_39 Block : 186
 INFO:root:Premature stop codon in Species_40 Block : 93
 INFO:root:Premature stop codon in Species_41 Block : 96
 INFO:root:Premature stop codon in Species_42 Block : 138
@@ -253,8 +217,6 @@ INFO:root:Premature stop codon in Species_44 Block : 198
 INFO:root:Premature stop codon in Species_45 Block : 93
 INFO:root:Premature stop codon in Species_46 Block : 63
 INFO:root:Premature stop codon in Species_47 Block : 93
-INFO:root:Premature stop codon in Species_49 Block : 138
-INFO:root:Premature stop codon in Species_50 Block : 138
 INFO:root:Premature stop codon in Species_51 Block : 93
 INFO:root:Premature stop codon in Species_52 Block : 90
 INFO:root:Premature stop codon in Species_53 Block : 93
@@ -268,13 +230,11 @@ INFO:root:Premature stop codon in Species_61 Block : 186
 INFO:root:Premature stop codon in Species_62 Block : 93
 INFO:root:Premature stop codon in Species_63 Block : 57
 INFO:root:Premature stop codon in Species_64 Block : 75
-INFO:root:Premature stop codon in Species_66 Block : 138
 INFO:root:Premature stop codon in Species_67 Block : 48
 INFO:root:Premature stop codon in Species_68 Block : 93
 INFO:root:Premature stop codon in Species_69 Block : 93
 INFO:root:Premature stop codon in Species_70 Block : 60
 INFO:root:Premature stop codon in Species_71 Block : 108
-INFO:root:Premature stop codon in Species_73 Block : 150
 INFO:root:Premature stop codon in Species_74 Block : 138
 INFO:root:Premature stop codon in Species_75 Block : 87
 INFO:root:Premature stop codon in Species_76 Block : 93
@@ -292,15 +252,11 @@ INFO:root:Premature stop codon in Species_87 Block : 93
 INFO:root:Premature stop codon in Species_88 Block : 93
 INFO:root:Premature stop codon in Species_89 Block : 93
 INFO:root:Premature stop codon in Species_90 Block : 138
-INFO:root:Premature stop codon in Species_91 Block : 138
 INFO:root:Premature stop codon in Species_92 Block : 138
-INFO:root:Premature stop codon in Species_93 Block : 138
 INFO:root:Premature stop codon in Species_94 Block : 93
 INFO:root:Premature stop codon in Species_95 Block : 186
 INFO:root:Premature stop codon in Species_96 Block : 93
-INFO:root:Premature stop codon in Species_97 Block : 138
 INFO:root:Premature stop codon in Species_98 Block : 93
-INFO:root:Premature stop codon in Species_99 Block : 138
 INFO:root:Premature stop codon in Species_100 Block : 186
 INFO:root:Premature stop codon in Species_101 Block : 93
 INFO:root:Premature stop codon in Species_102 Block : 93
