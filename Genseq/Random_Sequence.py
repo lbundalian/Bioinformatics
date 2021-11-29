@@ -365,6 +365,7 @@ def retain_introns(aln, per_introns, length_introns):
                 insert_intron = generate_introns(pre_introns,length_introns)
                 no_stop = check_stop(insert_intron)
                 
+            # print(stop_codons in [insert_intron[i:i+3] for i in range(0, len(insert_intron), 3)]) 
             
             s = aln[i].seq[:loc - (pre_seq-1)] + insert_intron + aln[i].seq[loc - (pre_seq-1):]
         else:
