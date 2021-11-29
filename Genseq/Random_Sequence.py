@@ -321,10 +321,25 @@ def insert_stop(aln, per_stop):
 
 
 
-def generate_introns(length):
+def generate_introns(pre_introns,length):
     introns = ''.join(np.random.choice(nucleotides, int(length)))
+    introns = pre_introns + introns
     return(introns)
 
+
+def check_stop(sequence):
+    
+    stop_codons = ['TGA','TAA','TAG']
+    
+    no_stop = True
+    
+    for index in range(0, len(sequence), 3):
+        codon = sequence[index:index+3]
+        if codon in stop_codons:
+            no_stop = False
+            break
+    
+    return no_stop
 
 
 def retain_introns(aln, per_introns, length_introns):
@@ -337,9 +352,21 @@ def retain_introns(aln, per_introns, length_introns):
     for i in range(len(aln)):
         if i in idx:
             loc = random.choice(range(len(aln[i].seq)))
+            pre_seq = (loc+1)%3
+            pre_introns = ''
+            if pre_seq != 0:
+                adj_loc = loc - (pre_seq-1)
+                pre_introns = aln[i].seq[adj_loc:adj_loc + pre_seq]
+            
             logging.info("Intron retention for {0}".format(aln[i].name))
-            insert_intron = generate_introns(length_introns)
-            s = aln[i].seq[:loc] + insert_intron + aln[i].seq[loc:]
+            
+            no_stop = True
+            while no_stop:
+                insert_intron = generate_introns(pre_introns,length_introns)
+                no_stop = check_stop(insert_intron)
+                
+            
+            s = aln[i].seq[:loc - (pre_seq-1)] + insert_intron + aln[i].seq[loc - (pre_seq-1):]
         else:
             s = aln[i].seq
         
