@@ -117,7 +117,6 @@ class MSACleaner(IMSACleaner):
     strict_gap_thr = 90
     seqwise_gap_thr = 0
     concensus_thr = 0
-    concensus = []
     debug = False
     alignments = None
     directory = ''
