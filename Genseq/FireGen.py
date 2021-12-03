@@ -310,6 +310,7 @@ class MSAGenerator(IMSAGenerator):
     def print_sequence(self):
         
         for aln in self.msa:
+        	
             print(aln.seq)
         
     def terminate(self):
