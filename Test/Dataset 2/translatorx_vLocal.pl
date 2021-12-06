@@ -1163,8 +1163,10 @@ if ($function == 1) {
 	elsif ($pauser eq "muscle") {
 		$muscleoutfile=$out_file . '.aa_ali.fasta';	
 		open(LOG, ">$out_file.$pauser.log") || die "Cannot create file outfile.pauser.log: $out_file.$pauser.log\n";
+		print "Running muscle";
 		my $pid = open(PH, "$path"."muscle -in $muscleinfile -out $muscleoutfile 2>&1 |");              # or with an open pipe
 		while(<PH>) {
+			print "Running..";
 			print STDERR $_;
 			print LOG $_;
 		}

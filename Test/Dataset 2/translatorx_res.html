@@ -1,0 +1,422 @@
+<html>
+<head>
+	<style type='text/css'>
+
+
+div#rounded-box2 {margin:10 auto;padding:0;border-radius:7px;-moz-border-radius: 7px; -webkit-border-radius : 7px;}  
+div#rounded-box2 p {margin:0;padding:10px;}  	  
+	  
+	.elementoVisible {display:block;}
+	.elementoOculto {display:none;}
+	.linkContraido {
+		cursor: pointer;
+		background: url(EC_contraido.png) no-repeat;
+		color: #444444;
+		font-size: 10px;
+		font-weight: bold;
+		font-family: Verdana,Georgia,Helvetica;
+	}
+	.linkExpandido {
+		cursor: pointer;
+		background: url(EC_expandido.png) no-repeat;
+		color: #444444;
+		font-size: 10px;
+		font-weight: bold;
+		font-family: Verdana,Georgia,Helvetica;
+	}
+	TD, TR, BODY
+	{
+		font-size: 12px;
+		font-family: Verdana, Arial, Helvetica, Helv, sans-serif;
+	}
+	textarea
+	{
+  	border:1px solid #999999;
+	  width:98%;
+  	margin:5px 0;
+	  padding:1%;
+	}
+	.rjt
+	{
+ 		color : #3333BB;
+ 		font-size : 12px; 
+		font-weight: normal;
+		text-decoration : underline;
+		font-family: Verdana, Arial, Helvetica, Helv, sans-serif;
+	}	
+	
+
+	
+	</style>
+	
+	<script type='text/JavaScript'>
+	function desplegarContraer(cual,desde) {
+		var elElemento=document.getElementById(cual);
+		if(elElemento.className == 'elementoVisible') {
+		elElemento.className = 'elementoOculto';
+		desde.className = 'linkContraido';
+		} else {
+		elElemento.className = 'elementoVisible';
+		desde.className = 'linkExpandido';
+		}
+	}
+	function expandir(cual,desde) {
+		var elElemento=document.getElementById(cual);
+		elElemento.className = 'elementoVisible';
+	}
+	function contraer(cual,desde) {
+		var elElemento=document.getElementById(cual);
+		elElemento.className = 'elementoOculto';
+	}
+	function expandirlink(cual,desde) {
+		var elElemento=document.getElementById(cual);
+		elElemento.className = 'linkExpandido';
+	}
+	function contraerlink(cual,desde) {
+		var elElemento=document.getElementById(cual);
+		elElemento.className = 'linkContraido';
+	}
+	function alterlinks(cual,elotro,desde) {
+		var elElemento=document.getElementById(cual);
+		var elOtroElemento =document.getElementById(elotro);
+		if(elElemento.className == 'linkContraido') {
+		elElemento.className = 'linkExpandido';
+		elOtroElemento.className = 'linkContraido';
+		} else {
+		elElemento.className = 'linkContraido';
+		elOtroElemento.className = 'linkExpandido';
+		}
+	}
+	function send2file (nombre_elemento) {
+		var ta = document.getElementById(nombre_elemento);
+		var taval = ta.value;
+		var doc = document.open("text/save");
+		doc.writeln(taval);
+		doc.close(); 
+	}
+	function send2file_webserver (file) {
+		window.location = "/cgi-bin/sequences.fasta?file="+file;
+	}
+	function goBackToTranslatorx () {
+		window.location.replace("/index_v5.html");
+	}
+	</script>
+	<title>TranslatorX results</title>
+</head>
+
+<body>
+
+<table cellspacing=0 style="border : thin solid; border-color:#CCCCCC" width="100%" bgcolor="#CCCCCC"><tr><td>
+<table width="100%" border=0 cellspacing=5 bgcolor="#EEEEEE"><tr><td>
+
+
+
+
+<input type="button" value="Back" onclick="goBackToTranslatorx();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="Help" onclick="window.open('/translatorx_help.html','TranslatorX help','width=640,height=600,scrollbars=1')"><br>
+<table border=0 cellspacing=10><tr valign="center"><td><table cellpadding=5><tr>
+<td bgcolor="#BA8600"><b>T</b></td>
+<td bgcolor="#E6E162"><b>R</b></td>
+<td bgcolor="#B45AB4"><b>A</b></td>
+<td bgcolor="#5252AA"><b>N</b></td>
+</tr><tr>
+<td bgcolor="#DC9682"><b>S</b></td>
+<td bgcolor="#FA9600"><b>L</b></td>
+<td bgcolor="#296AFF"><b>A</b></td>
+<td bgcolor="#E6E600"><b>T</b></td>
+</tr><tr>
+<td bgcolor="#C8C8C8"><b>O</b></td>
+<td bgcolor="#F61A2A"><b>R</b></td>
+<td bgcolor="#444AFF"><b>-</b></td>
+<td bgcolor="#7FA27F"><b>X</b></td>
+</tr><tr>
+</tr></table><br></td><td>
+<b style="font-size: 20px;">TranslatorX results</b><br>
+<font color="#804444" style="font-size:10px;">Powered by ReadSeq, GBlocks, Jalview, Muscle, Clustalw, MAFFT, T-Coffee and PRank</font>
+</td></tr></table>
+<font color="red"><b>Error: Species Species_2 has 23 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_10 has 19 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_12 has 3 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_15 has 8 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_17 has 13 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_20 has 9 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_22 has 20 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_25 has 19 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_30 has 21 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_32 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_34 has 4 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_36 has 3 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_37 has 10 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_41 has 26 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_43 has 10 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_46 has 30 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_68 has 24 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_70 has 11 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_71 has 34 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_72 has 3 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_74 has 17 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_75 has 8 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_79 has 13 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_81 has 17 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_82 has 3 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_87 has 8 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_88 has 21 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_90 has 9 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_96 has 14 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_100 has 12 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_104 has 9 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_113 has 26 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_116 has 28 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_117 has 24 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_118 has 33 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_120 has 27 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_126 has 19 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_132 has 19 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_134 has 6 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_138 has 25 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_139 has 25 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_140 has 6 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_153 has 22 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_161 has 3 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_162 has 9 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_165 has 3 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_166 has 14 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_172 has 14 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_179 has 16 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_182 has 17 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_189 has 24 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_192 has 17 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_193 has 10 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_194 has 18 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_195 has 22 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_199 has 22 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_209 has 16 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_214 has 6 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_217 has 17 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_218 has 17 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_219 has 6 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_232 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_235 has 14 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_236 has 17 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_241 has 19 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_242 has 20 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_249 has 28 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_251 has 5 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_257 has 23 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_259 has 6 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_261 has 28 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_262 has 29 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_265 has 26 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_269 has 6 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_270 has 21 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_271 has 5 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_273 has 18 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_276 has 19 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_284 has 3 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_285 has 10 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_287 has 5 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_290 has 29 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_291 has 9 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_293 has 3 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_302 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_305 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_314 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_324 has 19 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_326 has 3 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_327 has 6 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_328 has 11 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_329 has 10 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_335 has 19 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_342 has 3 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_344 has 12 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_346 has 6 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_348 has 20 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_353 has 12 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_354 has 14 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_355 has 25 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_359 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_361 has 21 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_364 has 15 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_372 has 13 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_375 has 8 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_381 has 21 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_382 has 13 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_389 has 24 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_390 has 18 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_394 has 9 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_406 has 8 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_411 has 26 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_412 has 16 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_422 has 16 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_423 has 8 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_426 has 24 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_435 has 31 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_436 has 32 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_437 has 10 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_441 has 33 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_445 has 21 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_451 has 16 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_459 has 13 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_460 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_466 has 12 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_468 has 3 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_470 has 15 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_471 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_472 has 22 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_476 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_478 has 12 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_479 has 8 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_480 has 17 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_481 has 27 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_487 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_489 has 29 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_492 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_494 has 21 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_499 has 4 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_503 has 17 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_508 has 32 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_514 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_516 has 4 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_518 has 22 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_519 has 27 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_523 has 9 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_527 has 5 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_530 has 26 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_539 has 6 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_549 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_552 has 29 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_554 has 26 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_558 has 20 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_559 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_560 has 24 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_564 has 25 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_567 has 16 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_577 has 23 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_578 has 25 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_579 has 17 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_580 has 3 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_587 has 20 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_589 has 27 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_593 has 30 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_596 has 31 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_605 has 16 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_613 has 19 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_614 has 24 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_615 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_626 has 36 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_630 has 4 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_634 has 15 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_638 has 28 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_644 has 23 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_646 has 28 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_651 has 20 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_655 has 24 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_658 has 6 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_670 has 24 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_673 has 23 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_677 has 11 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_680 has 18 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_682 has 21 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_684 has 27 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_685 has 11 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_688 has 28 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_689 has 26 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_694 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_696 has 12 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_700 has 19 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_707 has 3 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_714 has 12 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_715 has 23 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_720 has 3 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_730 has 15 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_731 has 20 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_733 has 33 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_734 has 12 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_737 has 22 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_740 has 13 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_741 has 20 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_746 has 7 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_747 has 8 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_749 has 7 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_755 has 12 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_760 has 20 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_762 has 30 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_774 has 27 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_777 has 17 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_778 has 12 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_779 has 9 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_783 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_789 has 12 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_792 has 19 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_795 has 13 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_796 has 10 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_805 has 9 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_806 has 3 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_811 has 18 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_818 has 27 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_822 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_824 has 10 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_834 has 5 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_840 has 33 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_841 has 17 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_843 has 20 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_845 has 4 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_846 has 20 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_852 has 18 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_853 has 26 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_868 has 5 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_869 has 23 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_872 has 16 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_877 has 13 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_878 has 26 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_881 has 22 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_882 has 18 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_888 has 12 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_895 has 23 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_896 has 5 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_897 has 17 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_898 has 23 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_901 has 23 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_903 has 3 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_904 has 4 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_906 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_908 has 15 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_910 has 30 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_912 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_914 has 23 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_915 has 12 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_917 has 9 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_918 has 17 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_919 has 4 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_922 has 19 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_929 has 18 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_933 has 11 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_945 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_949 has 4 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_952 has 20 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_953 has 14 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_955 has 3 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_961 has 20 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_964 has 6 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_968 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_980 has 4 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_982 has 20 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_988 has 16 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_991 has 15 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_992 has 10 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_998 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_1000 has 18 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_1009 has 19 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_1013 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_1023 has 9 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_1027 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_1028 has 8 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_1029 has 22 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_1036 has 8 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_1037 has 25 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_1046 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_1047 has 2 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_1052 has 31 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_1055 has 21 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_1064 has 20 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_1066 has 19 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
+<font color="red"><b>Error: Species Species_1067 has 14 termination codons. Are you sure you selected the proper genetic code? Alternatively, is the sequence in the correct reading frame?</b></font><br>
