@@ -1,0 +1,8 @@
+Results from MaxAlign Service
+
+Original number of sequences: 149
+Original total number of columns: 1032
+Original ungapped columns: 1002
+Original alignment area: 149298
+
+This alignment can't be improved by removing sequences

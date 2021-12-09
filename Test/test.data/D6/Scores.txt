@@ -1,0 +1,37 @@
+Alignment Scores
+Original aligned file
+Length of sequence: 2418
+Percentage of non-gaps: 41.85943233356093 %
+Percentage of totally conserved columns: 0.24813895781637718
+Entropy score: -305.76801775588933
+Sum of Pairs score (Blosum62): 74098150
+Sum of Pairs score (PAM250): 71035268
+Star score (Blosum62): 1066155
+Star score (PAM250): 1021806
+Custom
+Length of sequence: 1002
+Percentage of non-gaps: 100.0 %
+Percentage of totally conserved columns: 0.5988023952095809
+Entropy score: -245.172253833106
+Sum of Pairs score (Blosum62): 60500114
+Sum of Pairs score (PAM250): 57437216
+Star score (Blosum62): 868797
+Star score (PAM250): 824448
+Trimal
+Length of sequence: 1002
+Percentage of non-gaps: 100.0 %
+Percentage of totally conserved columns: 0.5988023952095809
+Entropy score: -245.172253833106
+Sum of Pairs score (Blosum62): 60500114
+Sum of Pairs score (PAM250): 57437216
+Star score (Blosum62): 868797
+Star score (PAM250): 824448
+Maxal
+Length of sequence: 2418
+Percentage of non-gaps: 41.85943233356093 %
+Percentage of totally conserved columns: 0.24813895781637718
+Entropy score: -305.76801775588933
+Sum of Pairs score (Blosum62): 74098150
+Sum of Pairs score (PAM250): 71035268
+Star score (Blosum62): 1066155
+Star score (PAM250): 1021806
