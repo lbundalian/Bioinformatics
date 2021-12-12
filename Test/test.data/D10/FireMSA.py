@@ -445,15 +445,21 @@ class MSACleaner(IMSACleaner):
 
             for _alignment in self.alignments:
                 
+                
                 premature = False
                 
-                for index in range(0, len(_alignment.seq), 3):
-                    codon = _alignment.seq[index:index+3]
-                    if codon in stop_codons and index < (len(_alignment.seq)/3):
-                        logging.info("Premature stop codon in {0} Block : {1}".format(_alignment.name, index))
+                seq = str(_alignment.seq)
+                
+                kmers = [seq[i:i+3] for i in range(0, len(seq), 3)]
+                
+                
+                for index,kmer in enumerate(kmers):
+                    
+                    if kmer in stop_codons and index < (len(kmers)-1):
+                        logging.info("Premature stop codon in {0} Block".format(_alignment.name))
                         premature = True
                         break
-
+                     
                 
 
                 if not premature:

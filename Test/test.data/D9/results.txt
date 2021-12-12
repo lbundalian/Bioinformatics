@@ -8,3 +8,140 @@ MAFFT ALignment: Time Elapsed 5.043 sec
 Custom Script : Time Elapsed 6.452 sec Remaining Species 149
 MaxALign Script : Time Elapsed 5.136 sec Remaining Species 149
 TrimAl Script : Time Elapsed 5.292 sec Remaining Species 149
+Summary of Test
+MAFFT ALignment: Time Elapsed 3.609 sec
+Custom Script : Time Elapsed 7.981 sec Remaining Species 149
+Summary of Test
+MAFFT ALignment: Time Elapsed 3.303 sec
+Custom Script : Time Elapsed 4.443 sec Remaining Species 149
+Summary of Test
+MAFFT ALignment: Time Elapsed 3.414 sec
+Custom Script : Time Elapsed 4.545 sec Remaining Species 149
+Summary of Test
+MAFFT ALignment: Time Elapsed 3.400 sec
+Custom Script : Time Elapsed 3.992 sec Remaining Species 0
+Summary of Test
+MAFFT ALignment: Time Elapsed 3.415 sec
+Custom Script : Time Elapsed 4.521 sec Remaining Species 149
+Summary of Test
+MAFFT ALignment: Time Elapsed 3.383 sec
+Custom Script : Time Elapsed 4.518 sec Remaining Species 149
+Summary of Test
+MAFFT ALignment: Time Elapsed 3.348 sec
+Custom Script : Time Elapsed 4.441 sec Remaining Species 149
+Summary of Test
+MAFFT ALignment: Time Elapsed 4.879 sec
+Custom Script : Time Elapsed 5.754 sec Remaining Species 0
+Summary of Test
+MAFFT ALignment: Time Elapsed 4.881 sec
+Custom Script : Time Elapsed 5.805 sec Remaining Species 0
+Summary of Test
+MAFFT ALignment: Time Elapsed 4.922 sec
+Custom Script : Time Elapsed 5.785 sec Remaining Species 0
+Summary of Test
+MAFFT ALignment: Time Elapsed 4.096 sec
+Custom Script : Time Elapsed 7.594 sec Remaining Species 0
+Summary of Test
+MAFFT ALignment: Time Elapsed 3.596 sec
+Custom Script : Time Elapsed 4.241 sec Remaining Species 0
+Summary of Test
+MAFFT ALignment: Time Elapsed 3.450 sec
+Custom Script : Time Elapsed 4.076 sec Remaining Species 0
+Summary of Test
+MAFFT ALignment: Time Elapsed 3.435 sec
+Custom Script : Time Elapsed 4.255 sec Remaining Species 136
+Summary of Test
+MAFFT ALignment: Time Elapsed 3.040 sec
+Custom Script : Time Elapsed 4.044 sec Remaining Species 136
+MaxALign Script : Time Elapsed 3.139 sec Remaining Species 149
+TrimAl Script : Time Elapsed 3.226 sec Remaining Species 149
+Summary of Test
+MAFFT ALignment: Time Elapsed 3.014 sec
+Custom Script : Time Elapsed 4.169 sec Remaining Species 148
+MaxALign Script : Time Elapsed 3.091 sec Remaining Species 149
+TrimAl Script : Time Elapsed 3.187 sec Remaining Species 149
+Summary of Test
+MAFFT ALignment: Time Elapsed 2.973 sec
+Custom Script : Time Elapsed 4.073 sec Remaining Species 148
+MaxALign Script : Time Elapsed 3.048 sec Remaining Species 149
+TrimAl Script : Time Elapsed 3.153 sec Remaining Species 149
+Summary of Test
+MAFFT ALignment: Time Elapsed 2.997 sec
+Custom Script : Time Elapsed 4.133 sec Remaining Species 148
+MaxALign Script : Time Elapsed 3.058 sec Remaining Species 149
+TrimAl Script : Time Elapsed 3.169 sec Remaining Species 149
+Summary of Test
+MAFFT ALignment: Time Elapsed 2.990 sec
+Custom Script : Time Elapsed 4.144 sec Remaining Species 148
+MaxALign Script : Time Elapsed 3.055 sec Remaining Species 149
+TrimAl Script : Time Elapsed 3.172 sec Remaining Species 149
+Summary of Test
+MAFFT ALignment: Time Elapsed 2.975 sec
+Custom Script : Time Elapsed 4.106 sec Remaining Species 148
+MaxALign Script : Time Elapsed 3.047 sec Remaining Species 149
+TrimAl Script : Time Elapsed 3.154 sec Remaining Species 149
+Summary of Test
+MAFFT ALignment: Time Elapsed 3.030 sec
+Custom Script : Time Elapsed 4.179 sec Remaining Species 148
+MaxALign Script : Time Elapsed 3.094 sec Remaining Species 149
+TrimAl Script : Time Elapsed 3.213 sec Remaining Species 149
+Summary of Test
+MAFFT ALignment: Time Elapsed 3.117 sec
+Custom Script : Time Elapsed 4.252 sec Remaining Species 148
+MaxALign Script : Time Elapsed 3.190 sec Remaining Species 149
+TrimAl Script : Time Elapsed 3.289 sec Remaining Species 149
+Summary of Test
+MAFFT ALignment: Time Elapsed 3.065 sec
+Custom Script : Time Elapsed 4.219 sec Remaining Species 148
+MaxALign Script : Time Elapsed 3.137 sec Remaining Species 149
+TrimAl Script : Time Elapsed 3.247 sec Remaining Species 149
+Summary of Test
+MAFFT ALignment: Time Elapsed 3.108 sec
+Custom Script : Time Elapsed 4.283 sec Remaining Species 148
+MaxALign Script : Time Elapsed 3.172 sec Remaining Species 149
+TrimAl Script : Time Elapsed 3.289 sec Remaining Species 149
+Summary of Test
+MAFFT ALignment: Time Elapsed 3.026 sec
+Custom Script : Time Elapsed 4.174 sec Remaining Species 148
+MaxALign Script : Time Elapsed 3.106 sec Remaining Species 149
+TrimAl Script : Time Elapsed 3.207 sec Remaining Species 149
+Summary of Test
+MAFFT ALignment: Time Elapsed 3.035 sec
+Custom Script : Time Elapsed 4.396 sec Remaining Species 148
+MaxALign Script : Time Elapsed 3.104 sec Remaining Species 149
+TrimAl Script : Time Elapsed 3.199 sec Remaining Species 149
+Summary of Test
+MAFFT ALignment: Time Elapsed 3.076 sec
+Custom Script : Time Elapsed 4.247 sec Remaining Species 0
+MaxALign Script : Time Elapsed 3.150 sec Remaining Species 149
+TrimAl Script : Time Elapsed 3.248 sec Remaining Species 149
+Summary of Test
+MAFFT ALignment: Time Elapsed 3.037 sec
+Custom Script : Time Elapsed 4.179 sec Remaining Species 0
+MaxALign Script : Time Elapsed 3.112 sec Remaining Species 149
+TrimAl Script : Time Elapsed 3.204 sec Remaining Species 149
+Summary of Test
+MAFFT ALignment: Time Elapsed 3.109 sec
+Custom Script : Time Elapsed 4.425 sec Remaining Species 0
+MaxALign Script : Time Elapsed 3.183 sec Remaining Species 149
+TrimAl Script : Time Elapsed 3.288 sec Remaining Species 149
+Summary of Test
+MAFFT ALignment: Time Elapsed 3.028 sec
+Custom Script : Time Elapsed 4.038 sec Remaining Species 0
+MaxALign Script : Time Elapsed 3.092 sec Remaining Species 149
+TrimAl Script : Time Elapsed 3.208 sec Remaining Species 149
+Summary of Test
+MAFFT ALignment: Time Elapsed 3.006 sec
+Custom Script : Time Elapsed 4.024 sec Remaining Species 0
+MaxALign Script : Time Elapsed 3.072 sec Remaining Species 149
+TrimAl Script : Time Elapsed 3.178 sec Remaining Species 149
+Summary of Test
+MAFFT ALignment: Time Elapsed 3.106 sec
+Custom Script : Time Elapsed 4.176 sec Remaining Species 142
+MaxALign Script : Time Elapsed 3.181 sec Remaining Species 149
+TrimAl Script : Time Elapsed 3.369 sec Remaining Species 149
+Summary of Test
+MAFFT ALignment: Time Elapsed 3.067 sec
+Custom Script : Time Elapsed 4.142 sec Remaining Species 142
+MaxALign Script : Time Elapsed 3.128 sec Remaining Species 149
+TrimAl Script : Time Elapsed 3.250 sec Remaining Species 149
