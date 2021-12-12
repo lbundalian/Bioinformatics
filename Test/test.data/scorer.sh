@@ -1,5 +1,5 @@
 #!/bin/bash
-for i in {3..12}
+for i in {9..12}
 do
  cp AlignmentScore.py D$i
  cd D$i
