@@ -1,0 +1,45 @@
+Consensus Scores
+Custom
+Trimal
+Maxal
+Consensus Scores
+Custom
+Trimal
+Maxal
+Consensus Scores
+Custom
+Trimal
+Maxal
+Consensus Scores
+Custom
+0.0029940119760479044
+Trimal
+0.003992015968063872
+Maxal
+0.0
+Consensus Scores
+Custom
+Seed :
+Seed :
+0.0029940119760479044
+Trimal
+Seed :
+Seed :
+0.003992015968063872
+Maxal
+Seed :
+Seed :
+0.0
+Consensus Scores
+Custom
+Seed 999:
+Target 1002:
+0.0029940119760479044
+Trimal
+Seed 998:
+Target 1002:
+0.003992015968063872
+Maxal
+Seed 1002:
+Target 1002:
+0.0
