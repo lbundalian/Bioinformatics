@@ -1,5 +1,5 @@
 #!/bin/bash
-for i in {1..12}
+for i in {4..12}
 do
  cp test.sh D$i/
  cp FireMSA.py D$i/
