@@ -290,7 +290,11 @@ def shift_sequence(aln, per_species):
 def premature_stop(seq):
     
     mutated_seq = ''
-    sequence = list(seq)
+    #sequence = list(seq)
+    
+    seq = str(seq)
+    sequence = [seq[i:i+3] for i in range(0, len(seq), 3)]
+    
     loc = random.randrange(1,len(sequence)-1,1)
     sequence[loc] = 'TAG'
     seq = ''.join(sequence)

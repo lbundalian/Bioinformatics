@@ -517,7 +517,10 @@ class MSACleaner(IMSACleaner):
             nuc = str(aln.seq)
             matches = re.finditer('N{1,}',nuc)
             for match in matches:
-                n_position.append(match.start())
+                div_by_3 = (match.start() - match.end())/3
+                if div_by_3 != 0:
+                    n_position.append(match.start())
+            
             
             
             
