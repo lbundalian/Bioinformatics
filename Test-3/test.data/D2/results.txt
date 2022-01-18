@@ -1,0 +1,5 @@
+Summary of Test
+MAFFT ALignment: Time Elapsed 31.296 sec
+Custom Script : Time Elapsed 32.941 sec Remaining Species 38
+MaxALign Script : Time Elapsed 31.416 sec Remaining Species 38
+TrimAl Script : Time Elapsed 31.382 sec Remaining Species 40

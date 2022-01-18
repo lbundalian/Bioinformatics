@@ -1,0 +1,85 @@
+<html>
+	<head><style type='text/css'>
+		TD, TR
+		{
+			font-size: 12px;
+			font-family: Verdana, Arial, Helvetica, Helv, sans-serif;
+		}
+		body{
+			font-size: 12px;
+			font-family: Verdana, Arial, Helvetica, Helv, sans-serif;
+			margin: 0;
+			padding: 0;
+			border: 0;
+			overflow: hidden;
+			height: 100%; 
+			max-height: 100%; 
+		}
+		
+		#framecontent{
+			position: absolute;
+			top: 0;
+			bottom: 0; 
+			left: 0;
+			width: 100px; /*Width of frame div*/
+			height: 100%;
+			overflow: hidden; /*Disable scrollbars. Set to "scroll" to enable*/
+			background: navy;
+			color: white;
+		}
+		
+		#maincontent{
+			position: fixed;
+			top: 0; 
+			left: 100px; /*Set left value to WidthOfFrameDiv*/
+			right: 0;
+			bottom: 0;
+			overflow: auto; 
+			background: #fff;
+		}
+		
+		.innertube{
+			margin: 15px; /*Margins for inner DIV inside each DIV (to provide padding)*/
+		}
+		
+		* html body{ /*IE6 hack*/
+			padding: 0 0 0 100px; /*Set value to (0 0 0 WidthOfFrameDiv)*/
+		}
+		
+		* html #maincontent{ /*IE6 hack*/
+			height: 100%; 
+			width: 100%; 
+		}
+	</style>
+	<title>AA-coloured codon alignment</title>
+	</head>
+<body>
+<div id="framecontent"><div class="innertube">
+<table><tr>
+<td bgcolor="#A60A0A">D</td>
+<td bgcolor="#F61A2A">E</td>
+<td bgcolor="#E6E600">C</td>
+<td bgcolor="#E6E162">M</td>
+<td bgcolor="#444AFF">K</td>
+</tr><tr>
+<td bgcolor="#296AFF">R</td>
+<td bgcolor="#FA9600">S</td>
+<td bgcolor="#BA8600">T</td>
+<td bgcolor="#8282AA">F</td>
+<td bgcolor="#5252AA">Y</td>
+</tr><tr>
+<td bgcolor="#00AAAA">N</td>
+<td bgcolor="#00DFDF">Q</td>
+<td bgcolor="#EBEBEB">G</td>
+<td bgcolor="#1F921F">L</td>
+<td bgcolor="#7FA27F">V</td>
+</tr><tr>
+<td bgcolor="#5F825F">I</td>
+<td bgcolor="#C8C8C8">A</td>
+<td bgcolor="#B45AB4">W</td>
+<td bgcolor="#8282D2">H</td>
+<td bgcolor="#DC9682">P</td>
+</tr><tr>
+</tr></table></div></div><div id="maincontent"><div id="innertube"><br>
+<table border=0><tr>
+</tr></table></div></div></body></html>

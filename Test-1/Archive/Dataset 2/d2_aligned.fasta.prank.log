@@ -1,0 +1,48 @@
+Unknown option: -noxml
+
+
+prank v.170427. Minimal usage: 'prank sequence_file'
+
+Advanced usage: 'prank [optional parameters] -d=sequence_file [optional parameters]'
+
+ input/output parameters:
+  -d=sequence_file (in FASTA format)
+  -t=tree_file [default: no tree, generate approximate NJ tree]
+  -o=output_file [default: 'output']
+  -f=output_format ['fasta' (default), 'phylipi', 'phylips', 'paml', 'nexus']
+  -showxml [output xml-files]
+  -showtree [output dnd-files]
+  -showanc [output ancestral sequences]
+  -showevents [output evolutioanry events]
+  -showall [output all of these]
+  -support [compute posterior support]
+  -njtree [estimate tree from input alignment (and realign)]
+  -treeonly [estimate tree only]
+  -quiet
+
+ model parameters:
+  +F or -F [force insertions to be always skipped]
+  -gaprate=# [gap opening rate; default: dna 0.025 / prot 0.005]
+  -gapext=# [gap extension probability; default: dna 0.75 / prot 0.5]
+  -codon [for coding DNA: use empirical codon model]
+  -DNA / -protein [no autodetection: use dna or protein model]
+  -termgap [penalise terminal gaps normally]
+  -nomissing [no missing data, use -F for terminal gaps ]
+
+ other parameters:
+  -keep [keep alignment "as is" (e.g. for ancestor inference)]
+  -iterate=# [rounds of re-alignment iteration]
+  -once [run only once; same as -iterate=1]
+  -prunetree [prune guide tree branches with no sequence data]
+  -prunedata [prune sequence data with no guide tree leaves]
+  -uselogs [slower but should work for a greater number of sequences]
+  -translate [translate to protein]
+  -mttranslate [translate to protein using mt table]
+
+ other:
+  -convert [no alignment, just convert to another format]
+  -version [check for updates]
+  -verbose [print progress etc. during runtime]
+
+  -help [show more options]
+
