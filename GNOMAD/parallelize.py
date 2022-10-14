@@ -4,52 +4,99 @@ import concurrent
 import pandas as pd
 from concurrent.futures import ThreadPoolExecutor
 import time
-import subprocess
-
-import glob
-import os
 
 
-path: str = sys.argv[2]
-out: str = sys.argv[3]
-database: str = "/work/users/pz192nijo/Database/gencode.vM29.annotation.gff3.gz"
-fmt: str = sys.argv[1]
+start = sys.argv[1]
+offset = sys.argv[2]
 
-def load_path(file: str) -> list:
-    os.chdir(path)
-    files: list = glob.glob(f'*.{fmt}')
-    return files
+print(start)
+threads = 29
+#path: str = "genes"
+path: str = "chunks"
+gnomad: str  = "https://gnomad.broadinstitute.org/api/"
+
+def load_file(path: str,file: str) -> list:
+    reads: list = []
+    filepath: str = '{0}/{1}'.format(path,file)
+    df = pd.read_table(filepath,sep='\t', header=None)
+    reads = df 
+    return reads
     
 
 
 
-def exec_process(file: str) -> str:
+def get_exac_constraint(gene: str) -> str:
 
-    result = "FAIL"
-
-    command = f"htseq-count -f bam -s no -r pos -a 30 {path}/{file} {database} > {out}/{file}.txt"
+    print(gene)
+    result = None
+    
+    query: str = """{
+      gene(gene_symbol: "input_gene", reference_genome: GRCh37){
+      	gencode_symbol,
+        gnomad_constraint{
+          pLI,
+          mis_z,
+          lof_z
+        }
+      }
+    }""".replace("input_gene",gene)
+    
+    #print(query)
     try:
-        os.system(command)
-        #subprocess.run(["htseq-count","bam","no","pos","30", f"{path}/{file}", f"{database}",f"-o {out}/{file}.txt"])
+    
+        response: requests.models.Response = requests.post(gnomad, data={'query': query}, timeout = None)
         
+        #print(response.status_code)
+        if(response.status_code==200):
+            #print(response.json())
+            if response.json().get('errors'):
+               result = { "pLI": "NOT FOUND","mis_z": "NOT FOUND", "lof_z": "NOT FOUND" }
+            else:
+                
+                constraint : dict = response.json()['data']['gene']['gnomad_constraint']
+                result = constraint    
+            
     except Exception as e:
-        print(e)
+        print(e.response.text)
+
+    if result == None:
+        result = { "pLI": "NOT FOUND","mis_z": "NOT FOUND", "lof_z": "NOT FOUND" }    
 
 
-    return result
+    return gene,result['pLI'],result['mis_z'],result['lof_z']
 
 
 
-file_list: list = load_path(path)
+#gene_list: list = load_file(path,"subset.txt")
+chunk_list: list = []
+start = int(start)
+offset = int(offset)
 
-for i in range(0,len(file_list)):
-    with ThreadPoolExecutor(max_workers=len(file_list)) as executor:
-        future_to_url = { executor.submit(exec_process, file_list[i])  }
+for c in range(start,start+offset-1):
+    dataset = load_file(path,f"chunk_{c}.csv")
+    chunk_list.append(dataset[0].values.tolist())
+
+# gene_collection = gene_list["GENES"].values.tolist()
+# n = 29 
+# chunks = [gene_collection[i:i + n] for i in range(0, len(gene_collection), n)]
+
+gnomad_results: list = []
+
+chunks = chunk_list
+for i in range(0,len(chunks)):
+    tmp: list = []
+
+    with ThreadPoolExecutor(max_workers=threads) as executor:
+        future_to_url = { executor.submit(get_exac_constraint, gene) for gene in chunks[i] }
         for future in concurrent.futures.as_completed(future_to_url):
             try:
                 data = future.result()
- 
+                tmp.append(data)
+                gnomad_results.append(data)
             except Exception as e:
                 print('Looks like something went wrong:', e)
     
+    pd.DataFrame(tmp).to_csv(f"gnomad_chunks_{i}.csv")            
+    time.sleep(60)
                
+    #pd.DataFrame(gnomad_results).to_csv("gnomad_results.csv")
