@@ -45,6 +45,7 @@ from numpy.lib.function_base import average
 from distutils.util import strtobool
 
 
+
 # =============================================================================
 # Creates a formal interface to implement methods on the formal class  
 # =============================================================================
