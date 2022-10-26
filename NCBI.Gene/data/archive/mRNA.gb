@@ -1,0 +1,275 @@
+LOCUS       NM_016538               1725 bp    mRNA    linear   PRI 04-SEP-2022
+DEFINITION  Homo sapiens sirtuin 7 (SIRT7), mRNA.
+ACCESSION   NM_016538
+VERSION     NM_016538.3
+KEYWORDS    RefSeq; MANE Select.
+SOURCE      Homo sapiens (human)
+  ORGANISM  Homo sapiens
+            Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+            Mammalia; Eutheria; Euarchontoglires; Primates; Haplorrhini;
+            Catarrhini; Hominidae; Homo.
+REFERENCE   1  (bases 1 to 1725)
+  AUTHORS   Vigili de Kreutzenberg S, Giannella A, Ceolotto G, Faggin E,
+            Cappellari R, Mazzucato M, Fraccaro C, Tarantini G, Avogaro A and
+            Fadini GP.
+  TITLE     A miR-125/Sirtuin-7 pathway drives the pro-calcific potential of
+            myeloid cells in diabetic vascular disease
+  JOURNAL   Diabetologia 65 (9), 1555-1568 (2022)
+   PUBMED   35708762
+  REMARK    GeneRIF: A miR-125/Sirtuin-7 pathway drives the pro-calcific
+            potential of myeloid cells in diabetic vascular disease.
+REFERENCE   2  (bases 1 to 1725)
+  AUTHORS   Li X, Liu J, Lu L, Huang T, Hou W, Wang F, Yu L, Wu F, Qi J, Chen
+            X, Meng Z and Zhu M.
+  TITLE     Sirt7 associates with ELK1 to participate in hyperglycemia memory
+            and diabetic nephropathy via modulation of DAPK3 expression and
+            endothelial inflammation
+  JOURNAL   Transl Res 247, 99-116 (2022)
+   PUBMED   35470010
+  REMARK    GeneRIF: Sirt7 associates with ELK1 to participate in hyperglycemia
+            memory and diabetic nephropathy via modulation of DAPK3 expression
+            and endothelial inflammation.
+REFERENCE   3  (bases 1 to 1725)
+  AUTHORS   Mizutani H, Sato Y, Yamazaki M, Yoshizawa T, Ando Y, Ueda M and
+            Yamagata K.
+  TITLE     SIRT7 Deficiency Protects against Abeta42-Induced Apoptosis through
+            the Regulation of NOX4-Derived Reactive Oxygen Species Production
+            in SH-SY5Y Cells
+  JOURNAL   Int J Mol Sci 23 (16), 9027 (2022)
+   PUBMED   36012298
+  REMARK    GeneRIF: SIRT7 Deficiency Protects against Abeta42-Induced
+            Apoptosis through the Regulation of NOX4-Derived Reactive Oxygen
+            Species Production in SH-SY5Y Cells.
+            Publication Status: Online-Only
+REFERENCE   4  (bases 1 to 1725)
+  AUTHORS   Dong Z, Yang L, Lu J, Guo Y, Shen S, Liang J and Guo W.
+  TITLE     Downregulation of LINC00886 facilitates epithelial-mesenchymal
+            transition through SIRT7/ELF3/miR-144 pathway in esophageal
+            squamous cell carcinoma
+  JOURNAL   Clin Exp Metastasis 39 (4), 661-677 (2022)
+   PUBMED   35616822
+  REMARK    GeneRIF: Downregulation of LINC00886 facilitates
+            epithelial-mesenchymal transition through SIRT7/ELF3/miR-144
+            pathway in esophageal squamous cell carcinoma.
+REFERENCE   5  (bases 1 to 1725)
+  AUTHORS   Hedayati MA, Khani D and Sheikhesmaeili F.
+  TITLE     Sirt3, 6, and 7 Genes Expression in Gastric Antral Epithelial Cells
+            of Patients with Helicobacter pylori Infection
+  JOURNAL   Curr Microbiol 79 (4), 114 (2022)
+   PUBMED   35195783
+  REMARK    GeneRIF: Sirt3, 6, and 7 Genes Expression in Gastric Antral
+            Epithelial Cells of Patients with Helicobacter pylori Infection.
+            Publication Status: Online-Only
+REFERENCE   6  (bases 1 to 1725)
+  AUTHORS   Michishita E, Park JY, Burneskis JM, Barrett JC and Horikawa I.
+  TITLE     Evolutionarily conserved and nonconserved cellular localizations
+            and functions of human SIRT proteins
+  JOURNAL   Mol Biol Cell 16 (10), 4623-4635 (2005)
+   PUBMED   16079181
+REFERENCE   7  (bases 1 to 1725)
+  AUTHORS   De Nigris,F., Cerutti,J., Morelli,C., Califano,D., Chiariotti,L.,
+            Viglietto,G., Santelli,G. and Fusco,A.
+  TITLE     Isolation of a SIR-like gene, SIR-T8, that is overexpressed in
+            thyroid carcinoma cell lines and tissues
+  JOURNAL   Br J Cancer 87 (12), 1479 (2002)
+   PUBMED   12454780
+  REMARK    Correction to:[Br J Cancer. 2002 Mar 18;86(6):917-23. PMID:
+            11953824]
+REFERENCE   8  (bases 1 to 1725)
+  AUTHORS   de Nigris F, Cerutti J, Morelli C, Califano D, Chiariotti L,
+            Viglietto G, Santelli G and Fusco A.
+  TITLE     Isolation of a SIR-like gene, SIR-T8, that is overexpressed in
+            thyroid carcinoma cell lines and tissues
+  JOURNAL   Br J Cancer 86 (6), 917-923 (2002)
+   PUBMED   11953824
+  REMARK    Erratum:[Br J Cancer. 2002 Dec 2;87(12):1479. PMID: 12454780]
+REFERENCE   9  (bases 1 to 1725)
+  AUTHORS   Frye RA.
+  TITLE     Phylogenetic classification of prokaryotic and eukaryotic Sir2-like
+            proteins
+  JOURNAL   Biochem Biophys Res Commun 273 (2), 793-798 (2000)
+   PUBMED   10873683
+REFERENCE   10 (bases 1 to 1725)
+  AUTHORS   Bussow K, Cahill D, Nietfeld W, Bancroft D, Scherzinger E, Lehrach
+            H and Walter G.
+  TITLE     A method for global protein expression and antibody screening on
+            high-density filters of an arrayed cDNA library
+  JOURNAL   Nucleic Acids Res 26 (21), 5007-5008 (1998)
+   PUBMED   9776767
+COMMENT     REVIEWED REFSEQ: This record has been curated by NCBI staff. The
+            reference sequence was derived from BQ890203.1, BC101791.1,
+            CD579273.2 and BC017305.2.
+            On Nov 22, 2018 this sequence version replaced NM_016538.2.
+            
+            Summary: This gene encodes a member of the sirtuin family of
+            proteins, homologs to the yeast Sir2 protein. Members of the
+            sirtuin family are characterized by a sirtuin core domain and
+            grouped into four classes. The functions of human sirtuins have not
+            yet been determined; however, yeast sirtuin proteins are known to
+            regulate epigenetic gene silencing and suppress recombination of
+            rDNA. Studies suggest that the human sirtuins may function as
+            intracellular regulatory proteins with mono-ADP-ribosyltransferase
+            activity. The protein encoded by this gene is included in class IV
+            of the sirtuin family. [provided by RefSeq, Jul 2008].
+            
+            Publication Note:  This RefSeq record includes a subset of the
+            publications that are available for this gene. Please see the Gene
+            record to access additional publications.
+            
+            ##Evidence-Data-START##
+            Transcript exon combination :: SRR3476690.960718.1,
+                                           SRR3476690.230925.1 [ECO:0000332]
+            RNAseq introns              :: single sample supports all introns
+                                           SAMEA2154405 [ECO:0000348]
+            ##Evidence-Data-END##
+            
+            ##RefSeq-Attributes-START##
+            MANE Ensembl match     :: ENST00000328666.11/ ENSP00000329466.6
+            RefSeq Select criteria :: based on conservation, expression,
+                                      longest protein
+            ##RefSeq-Attributes-END##
+            COMPLETENESS: full length.
+PRIMARY     REFSEQ_SPAN         PRIMARY_IDENTIFIER PRIMARY_SPAN        COMP
+            1-13                BQ890203.1         7-19
+            14-789              BC101791.1         1-776
+            790-790             CD579273.2         767-767
+            791-1330            BC101791.1         778-1317
+            1331-1725           BC017305.2         1301-1695
+FEATURES             Location/Qualifiers
+     source          1..1725
+                     /organism="Homo sapiens"
+                     /mol_type="mRNA"
+                     /db_xref="taxon:9606"
+                     /chromosome="17"
+                     /map="17q25.3"
+     gene            1..1725
+                     /gene="SIRT7"
+                     /gene_synonym="SIR2L7"
+                     /note="sirtuin 7"
+                     /db_xref="GeneID:51547"
+                     /db_xref="HGNC:HGNC:14935"
+                     /db_xref="MIM:606212"
+     exon            1..138
+                     /gene="SIRT7"
+                     /gene_synonym="SIR2L7"
+                     /inference="alignment:Splign:2.1.0"
+     CDS             46..1248
+                     /gene="SIRT7"
+                     /gene_synonym="SIR2L7"
+                     /EC_number="2.3.1.286"
+                     /note="silent mating type information regulation 2,
+                     S.cerevisiae, homolog 7; sir2-related protein type 7;
+                     sirtuin type 7; NAD-dependent deacetylase sirtuin-7;
+                     SIR2-like protein 7; regulatory protein SIR2 homolog 7;
+                     NAD-dependent protein deacylase sirtuin-7"
+                     /codon_start=1
+                     /product="NAD-dependent protein deacetylase sirtuin-7"
+                     /protein_id="NP_057622.1"
+                     /db_xref="CCDS:CCDS11792.1"
+                     /db_xref="GeneID:51547"
+                     /db_xref="HGNC:HGNC:14935"
+                     /db_xref="MIM:606212"
+                     /translation="MAAGGLSRSERKAAERVRRLREEQQRERLRQVSRILRKAAAERS
+                     AEEGRLLAESADLVTELQGRSRRREGLKRRQEEVCDDPEELRGKVRELASAVRNAKYL
+                     VVYTGAGISTAASIPDYRGPNGVWTLLQKGRSVSAADLSEAEPTLTHMSITRLHEQKL
+                     VQHVVSQNCDGLHLRSGLPRTAISELHGNMYIEVCTSCVPNREYVRVFDVTERTALHR
+                     HQTGRTCHKCGTQLRDTIVHFGERGTLGQPLNWEAATEAASRADTILCLGSSLKVLKK
+                     YPRLWCMTKPPSRRPKLYIVNLQWTPKDDWAALKLHGKCDDVMRLLMAELGLEIPAYS
+                     RWQDPIFSLATPLRAGEEGSHSRKSLCRSREEAPPGDRGAPLSSAPILGGWFGRGCTK
+                     RTKRKKVT"
+     misc_feature    46..126
+                     /gene="SIRT7"
+                     /gene_synonym="SIR2L7"
+                     /note="propagated from UniProtKB/Swiss-Prot (Q9NRC8.1);
+                     Region: Disordered. /evidence=ECO:0000256|SAM:MobiDB-lite"
+     misc_feature    1105..1185
+                     /gene="SIRT7"
+                     /gene_synonym="SIR2L7"
+                     /note="propagated from UniProtKB/Swiss-Prot (Q9NRC8.1);
+                     Region: Disordered. /evidence=ECO:0000256|SAM:MobiDB-lite"
+     misc_feature    1207..1209
+                     /gene="SIRT7"
+                     /gene_synonym="SIR2L7"
+                     /note="Asymmetric dimethylarginine, alternate.
+                     /evidence=ECO:0000269|PubMed:30420520;
+                     Omega-N-methylarginine, alternate.
+                     /evidence=ECO:0000269|PubMed:30420520,
+                     ECO:0007744|PubMed:24129315; propagated from
+                     UniProtKB/Swiss-Prot (Q9NRC8.1); methylation site"
+     exon            139..276
+                     /gene="SIRT7"
+                     /gene_synonym="SIR2L7"
+                     /inference="alignment:Splign:2.1.0"
+     exon            277..381
+                     /gene="SIRT7"
+                     /gene_synonym="SIR2L7"
+                     /inference="alignment:Splign:2.1.0"
+     exon            382..452
+                     /gene="SIRT7"
+                     /gene_synonym="SIR2L7"
+                     /inference="alignment:Splign:2.1.0"
+     exon            453..525
+                     /gene="SIRT7"
+                     /gene_synonym="SIR2L7"
+                     /inference="alignment:Splign:2.1.0"
+     exon            526..624
+                     /gene="SIRT7"
+                     /gene_synonym="SIR2L7"
+                     /inference="alignment:Splign:2.1.0"
+     exon            625..861
+                     /gene="SIRT7"
+                     /gene_synonym="SIR2L7"
+                     /inference="alignment:Splign:2.1.0"
+     exon            862..942
+                     /gene="SIRT7"
+                     /gene_synonym="SIR2L7"
+                     /inference="alignment:Splign:2.1.0"
+     exon            943..1049
+                     /gene="SIRT7"
+                     /gene_synonym="SIR2L7"
+                     /inference="alignment:Splign:2.1.0"
+     exon            1050..1725
+                     /gene="SIRT7"
+                     /gene_synonym="SIR2L7"
+                     /inference="alignment:Splign:2.1.0"
+     regulatory      1705..1710
+                     /regulatory_class="polyA_signal_sequence"
+                     /gene="SIRT7"
+                     /gene_synonym="SIR2L7"
+                     /note="hexamer: ATTAAA"
+     polyA_site      1725
+                     /gene="SIRT7"
+                     /gene_synonym="SIR2L7"
+                     /note="major polyA site"
+ORIGIN      
+        1 ctgccgtgtg aggcggaagc ggaagagcag gtctccaggg gagcgatggc agccgggggt
+       61 ctgagccgct ccgagcgcaa agcggcggag cgggtccgga ggttgcggga ggagcagcag
+      121 agggagcgcc tccgccaggt gtcgcgcatc ctgaggaagg cggcggcgga gcgcagcgcc
+      181 gaggagggcc ggctgctggc cgagagcgcg gacctggtaa cggagctgca gggccggagc
+      241 cggcggcgcg agggcctgaa gcggcggcag gaggaggtgt gcgacgaccc ggaggagctg
+      301 cgggggaagg tccgggagct ggccagcgcc gtccggaacg ccaaatactt ggtcgtctac
+      361 acaggcgcgg gaatcagcac ggcagcgtct atcccagact accggggccc taatggagtg
+      421 tggacactgc ttcagaaagg gagaagcgtt agtgctgccg acctgagcga ggccgagcca
+      481 accctcaccc acatgagcat cacccgtctg catgagcaga agctggtgca gcatgtggtg
+      541 tctcagaact gtgacgggct ccacctgagg agtgggctgc cgcgcacggc catctccgag
+      601 ctccacggga acatgtacat tgaagtctgt acctcctgcg ttcccaacag ggagtacgtg
+      661 cgggtgttcg atgtgacgga gcgcactgcc ctccacagac accagacagg ccggacctgc
+      721 cacaagtgtg ggacccagct gcgggacacc attgtgcact ttggggagag ggggacgttg
+      781 gggcagcctt tgaactggga agcggcgacc gaggctgcca gcagagcaga caccatcctg
+      841 tgtctagggt ccagcctgaa ggttctaaag aagtacccac gcctctggtg catgaccaag
+      901 ccccctagcc ggcggccgaa gctttacatc gtgaacctgc agtggacccc gaaggatgac
+      961 tgggctgccc tgaagctaca tgggaagtgt gatgacgtca tgcggctcct catggccgag
+     1021 ctgggcttgg agatccccgc ctatagcagg tggcaggatc ccattttctc actggcgact
+     1081 cccctgcgtg ctggtgaaga aggcagccac agtcggaagt cgctgtgcag aagcagagag
+     1141 gaggccccgc ctggggaccg gggtgcaccg cttagctcgg cccccatcct agggggctgg
+     1201 tttggcaggg gctgcacaaa acgcacaaaa aggaagaaag tgacgtaatc acgtgctcga
+     1261 tgaagaacag ttggcacttt gcagatggcc agtgtcacgg tgaaggctgg gttgccccca
+     1321 cgggtctagg gagaacgaac tctttgggga tgacattttc accgtgacat ttttagccat
+     1381 ttgtccttga ggaagcccct tgcactgctg cggttgtacc ctgatacggc ctggccatcg
+     1441 aggacacctg cccatccggc ctctgtgtca agaggtggca gccgcacctt tctgtgagaa
+     1501 cggaactcgg gttatttcag ccccggcctg cagagtggaa gcgcccagcg gcctttcctc
+     1561 gctcaccagg ccagtctcag ggcctcaccg tatttctact actacttaat gaaaaagtgt
+     1621 gaactttata gaatcctctc tgtactggat gtgcggcaga ggggtggctc cgagcctcgg
+     1681 ctctatgcag acctttttat ttctattaaa cgtttctgca ctggc
+//
+
