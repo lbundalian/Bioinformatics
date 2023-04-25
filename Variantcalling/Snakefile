@@ -1,0 +1,58 @@
+rule all:
+	input:
+		directory("data/vcf/"),directory("data/var/"),directory("data/annotation/"),directory("data/snpextract/")
+
+# Variant Calling
+rule step_001:
+	input: 
+		bam="data/bam",
+		reference="data/references/GRCh38.p13.genome.fa",
+		step="steps/step_001.sh"
+	output: 
+		directory("data/vcf/"),
+		touch("data/vcf/step_001.txt")
+	shell:
+		"bash {input.step} {input.bam} {input.reference} {output}"
+
+# Extract SNPs or INDELS
+rule step_002:
+	input: 
+		vcf="data/vcf",
+		reference="data/references/GRCh38.p13.genome.fa",
+		step="steps/step_002.sh"
+	output: 
+		directory("data/var/"),
+		touch("data/var/step_002.txt")
+	shell:
+		"bash {input.step} {input.vcf} {input.reference} SNP {output}"
+
+# Annotate SNP Effect
+rule step_003:
+	input: 
+		var="data/var",
+		
+		step="steps/step_003.sh",
+		snp="/work/users/pz192nijo/Tools/SnpEff/snpEff/snpEff.jar"
+	output: 
+		directory("data/annotation/"),
+		touch("data/annotation/step_003.txt")
+	params:
+		reference="GRCh38.p13"
+	shell:
+		"bash {input.step} {input.var} {input.snp} {params.reference} {output}"
+
+# Extract field
+rule step_004:
+	input: 
+		annotation="data/annotation",
+		step="steps/step_004.sh",
+		snp="/work/users/pz192nijo/Tools/SnpEff/snpEff/SnpSift.jar",
+		perl="/work/users/pz192nijo/Tools/SnpEff/snpEff/scripts/vcfEffOnePerLine.pl"
+	output: 
+		directory("data/snpextract/"),
+		touch("data/snpextract/step_004.txt")
+	params:
+		reference="GRCh38.p13"
+	shell:
+		"bash {input.step} {input.annotation} {input.snp} {input.perl} {params.reference} {output}"
+

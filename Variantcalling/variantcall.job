@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=16
+#SBATCH --job-name=variant-call
+#SBATCH --partition=clara-long
+#SBATCH --time=10:00:00
+
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+module load Anaconda3
+module load Java
+
+conda init bash
+eval "$(conda shell.bash hook)"
+conda activate bio
+snakemake --unlock
+snakemake --cores 10
