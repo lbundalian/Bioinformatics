@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#SBATCH --nodes=3
+#SBATCH --ntasks-per-node=16
+#SBATCH --mem-per-cpu=8G
+#SBATCH --job-name=RNASEQ
+#SBATCH --partition=clara
+#SBATCH --time=10:00:00
+
+
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+module load Anaconda3
+module load MultiQC
+module load FastQC
+module load STAR
+module load Nextflow
+conda init bash
+eval "$(conda shell.bash hook)"
+conda activate bio
+nextflow rnaseq.nf
